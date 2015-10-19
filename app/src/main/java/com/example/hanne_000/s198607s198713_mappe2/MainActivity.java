@@ -1,9 +1,11 @@
 package com.example.hanne_000.s198607s198713_mappe2;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.EditText;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -32,6 +34,33 @@ public class MainActivity extends AppCompatActivity {
             return true;
         }
 
-        return super.onOptionsItemSelected(item);
+
+        switch (item.getItemId()) {
+            case R.id.endreenkontakt:
+                Intent i = new Intent(this, MainActivity.class);
+                startActivity(i);
+                return true;
+
+            case R.id.test:
+                Intent j = new Intent(this, MainActivity.class);
+                //startActivity(j);
+                startActivityForResult(j, 555);
+                return true;
+/*
+            case R.id.test1:
+                Intent k = new Intent(this, MainActivity.class);
+                //startActivity(j);
+                startActivityForResult(k, 555);
+                return true;
+
+            case R.id.test2:
+                Intent l = new Intent(this, MainActivity.class);
+                //startActivity(j);
+                startActivityForResult(l, 555);
+                return true;
+*/
+            default:
+                return super.onOptionsItemSelected(item);
+        }
     }
 }
