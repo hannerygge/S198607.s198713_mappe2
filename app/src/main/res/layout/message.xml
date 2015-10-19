@@ -8,16 +8,18 @@
         android:layout_height="wrap_content"
         android:id="@+id/StandardMessage"/>
 
+    <DatePicker
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/DatePicker"
+        >
+    </DatePicker>
+
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/SaveStandardMessage"/>
 
-    <DatePicker
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/DatePicker"
-            >
-    </DatePicker>
+
 
 </LinearLayout>

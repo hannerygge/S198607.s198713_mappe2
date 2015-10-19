@@ -9,12 +9,13 @@ import android.widget.DatePicker;
 public class Message extends Activity{
 
     String Standardmessage = ""; //Must get this from database!
-    DatePicker dpResult;
+    DatePicker dp; //get from db
 
     public void updateStandardMessage(String message)
     {
         Standardmessage = message;
         //update database
+        //update time
     }
 
     @Override
@@ -22,6 +23,7 @@ public class Message extends Activity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.message);
         //Update standardmessage from db
+        //update time from db
     }
 
     @Override
