@@ -36,25 +36,25 @@ public class MainActivity extends AppCompatActivity {
 
 
         switch (item.getItemId()) {
-            case R.id.endreenkontakt:
-                Intent i = new Intent(this, MainActivity.class);
+            case R.id.newcontact:
+                Intent i = new Intent(this, NewContact.class);
                 startActivity(i);
                 return true;
 
-            case R.id.test:
-                Intent j = new Intent(this, MainActivity.class);
+            case R.id.message:
+                Intent j = new Intent(this, Message.class);
                 //startActivity(j);
                 startActivityForResult(j, 555);
                 return true;
-/*
-            case R.id.test1:
-                Intent k = new Intent(this, MainActivity.class);
+
+        /*     case R.id.test1:
+                Intent k = new Intent(this, Calendar.class);
                 //startActivity(j);
                 startActivityForResult(k, 555);
                 return true;
 
-            case R.id.test2:
-                Intent l = new Intent(this, MainActivity.class);
+           case R.id.test2:
+                Intent l = new Intent(this, Settings.class);
                 //startActivity(j);
                 startActivityForResult(l, 555);
                 return true;

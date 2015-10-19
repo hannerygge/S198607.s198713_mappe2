@@ -13,7 +13,7 @@
     </item>
 
     <item android:icon="@drawable/testing"
-        android:id="@+id/edit"
+        android:id="@+id/message"
         android:orderInCategory="200"
         app:showAsAction="always"
         android:title="@string/action_item_edit">
