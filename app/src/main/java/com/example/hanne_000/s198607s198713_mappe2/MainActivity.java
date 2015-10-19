@@ -1,5 +1,6 @@
 package com.example.hanne_000.s198607s198713_mappe2;
 
+import android.app.DialogFragment;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -7,13 +8,32 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.EditText;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements Settings.DialogClickListener{
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
     }
+
+    @Override
+    public void onYesClick()
+    {
+        return;
+    }
+
+    public  void onFinishClick()
+    {
+        return;
+    }
+
+    @Override
+    public void onNoClick()
+    {
+        return;
+
+    }
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -47,18 +67,23 @@ public class MainActivity extends AppCompatActivity {
                 startActivityForResult(j, 555);
                 return true;
 
-        /*     case R.id.test1:
+            case R.id.calendar:
                 Intent k = new Intent(this, Calendar.class);
                 //startActivity(j);
                 startActivityForResult(k, 555);
                 return true;
 
-           case R.id.test2:
-                Intent l = new Intent(this, Settings.class);
+           case R.id.settings:
+              /*  Intent l = new Intent(this, Settings.class);
                 //startActivity(j);
                 startActivityForResult(l, 555);
-                return true;
-*/
+                */
+
+               DialogFragment dialog = new Settings();
+               dialog.show(getFragmentManager(), "test9");
+
+               return true;
+
             default:
                 return super.onOptionsItemSelected(item);
         }

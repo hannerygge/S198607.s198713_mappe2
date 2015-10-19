@@ -20,7 +20,7 @@
 
     </item>
 
-  <!--  <item android:icon="@drawable/testing"
+   <item android:icon="@drawable/testing"
         android:id="@+id/calendar"
         android:orderInCategory="300"
         app:showAsAction="always"
@@ -34,5 +34,5 @@
         app:showAsAction="always"
         android:title="@string/action_item_settings">
 
-    </item>-->
+    </item>
 </menu>
