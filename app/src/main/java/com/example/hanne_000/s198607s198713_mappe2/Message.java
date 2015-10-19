@@ -5,11 +5,13 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.DatePicker;
+import android.widget.TimePicker;
 
 public class Message extends Activity{
 
     String Standardmessage = ""; //Must get this from database!
-    DatePicker dp; //get from db
+    TimePicker dp; //get from db
+
 
     public void updateStandardMessage(String message)
     {
@@ -24,6 +26,9 @@ public class Message extends Activity{
         setContentView(R.layout.message);
         //Update standardmessage from db
         //update time from db
+
+        dp = new TimePicker(this);
+        dp.is24HourView();
     }
 
     @Override
