@@ -9,6 +9,7 @@
         android:text="@string/message_title"
         />
 
+
     <EditText
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
