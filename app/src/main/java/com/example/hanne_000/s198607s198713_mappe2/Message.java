@@ -2,6 +2,8 @@ package com.example.hanne_000.s198607s198713_mappe2;
 
 import android.app.ActionBar;
 import android.app.Activity;
+import android.app.DialogFragment;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -35,8 +37,6 @@ public class Message extends Activity{
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu_main, menu);
 
-
-
         return true;
     }
 
@@ -52,6 +52,33 @@ public class Message extends Activity{
 
 
 
-        return super.onOptionsItemSelected(item);
+        switch (item.getItemId()) {
+            case R.id.newcontact:
+                Intent i = new Intent(this, NewContact.class);
+                startActivity(i);
+                return true;
+
+            case R.id.calendar:
+                Intent k = new Intent(this, Calendar.class);
+                //startActivity(j);
+                startActivityForResult(k, 555);
+                return true;
+
+            case R.id.settings:
+              /*  Intent l = new Intent(this, Settings.class);
+                //startActivity(j);
+                startActivityForResult(l, 555);
+                */
+
+                DialogFragment dialog = new Settings();
+                dialog.show(getFragmentManager(), "test9");
+
+                return true;
+
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+
+
     }
 }
