@@ -21,6 +21,21 @@ public class MainActivity extends AppCompatActivity implements Settings.DialogCl
         setContentView(R.layout.activity_main);
        // onClickTestButton();
         //onClickTest1Button();
+
+        if(findViewById(R.id.contactlistlayout) != null)
+        {
+            if(savedInstanceState != null)
+                return;
+
+          /*
+
+          // Ikke contacts, men info fra DB
+
+            Contacts contactFragment = new Contacts();
+            contactFragment.setArguments(getIntent().getExtras());
+            getFragmentManager().beginTransaction().add(R.id.contactlistlayout, contactFragment).commit();
+*/
+        }
     }
 
 

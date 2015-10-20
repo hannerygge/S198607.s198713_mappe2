@@ -18,7 +18,7 @@ public class Widget extends AppWidgetProvider {
         RemoteViews updateViews = new RemoteViews(context.getApplicationContext().getPackageName(), R.layout.widget_layout);
 
         //Endre under for hva som skal skje i widgeten.
-        //Bruke URI mot ContentProvider for å hente ut dataene. (må kanskje sorteres slik at den som har bursdag nærmest kommer først..)
+        //Bruke URI mot ContactCP for å hente ut dataene. (må kanskje sorteres slik at den som har bursdag nærmest kommer først..)
         Date date = new Date();
         java.text.DateFormat format = SimpleDateFormat.getTimeInstance(SimpleDateFormat.MEDIUM, Locale.getDefault());
         updateViews.setTextViewText(R.id.widgettekst, "Klokka er: " + format.format(date));
