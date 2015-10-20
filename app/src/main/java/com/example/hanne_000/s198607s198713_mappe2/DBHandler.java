@@ -57,8 +57,10 @@ public class DBHandler extends SQLiteOpenHelper {
         db.insert(TABLE_CONTACTS, null, values);
         db.close();
 
-
     }
 
+    public void update(Contact contact)
+    {
 
+    }
 }
