@@ -2,25 +2,50 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    style="@style/CustomStyle">
 
+<!-- -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/contact_name"/>
     <EditText
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:id="@+id/name"/>
-
+<!-- -->
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/DatePickerButton"/>
+        android:id="@+id/DatePickerButton"
+        android:text="@string/select_date"/>
 
-
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/showDate"
+        />
+<!-- -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/contact_phone"/>
     <EditText
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:id="@+id/number"
-        android:inputType="phone"/> //Vet ikke om denne fungerer riktig!
-
+        android:inputType="phone"/> <!--Vet ikke om denne fungerer riktig!-->
+<!-- -->
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/contact_message"/>
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/message"/>
+<!--- -->
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

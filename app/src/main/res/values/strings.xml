@@ -12,4 +12,13 @@
     <string name="save">Save</string>
     <string name="contacts">Contacts</string>
     <string name="new_contact_toast">New contact created.</string>
+    <string name="select_date">Select Date</string>
+
+<!-- For contact creation-->
+    <string name="contact_name">Name</string>
+    <string name="contact_bday">Birthday</string>
+    <string name="contact_phone">Phone number</string>
+    <string name="contact_message">Custom message</string>
+    <!-- -->
+
 </resources>

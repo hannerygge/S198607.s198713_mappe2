@@ -6,6 +6,8 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TimePicker;
 
 public class Message extends AppCompatActivity{
@@ -13,6 +15,15 @@ public class Message extends AppCompatActivity{
     String StandardMessage; //Must get this from database!
     TimePicker dp; //get from db
 
+    Button button;
+    public void UpdateOnClick(){
+        button = (Button) findViewById(R.id.SaveStandardMessage);
+        button.setOnClickListener(new View.OnClickListener(){
+            public void onClick(View v){
+                updateStandardMessage(findViewById(R.id.StandardMessage).toString());
+            }
+        });
+    }
 
     public void updateStandardMessage(String message)
     {
@@ -26,8 +37,7 @@ public class Message extends AppCompatActivity{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.message);
-        //Inflate the menu; this adds items to the action bar if it is present.
-        //Update standardmessage from db
+        UpdateOnClick();
         //update time from db
 
     }
