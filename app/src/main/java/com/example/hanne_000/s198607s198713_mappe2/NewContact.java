@@ -12,6 +12,10 @@ public class NewContact extends Activity{
 
         Contact tempContact = new Contact(n,bd,t,m);
 
+        DBHandler db = new DBHandler(getApplicationContext());
+        db.addContact(tempContact);
+        //toast
+
 
     }
 }

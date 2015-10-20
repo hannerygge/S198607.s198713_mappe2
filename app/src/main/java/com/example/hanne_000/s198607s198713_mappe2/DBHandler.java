@@ -49,7 +49,7 @@ public class DBHandler extends SQLiteOpenHelper {
 
         values.put(NAME, newcontact.getName());
         values.put(BIRTHDAY, newcontact.getBirthday());
-        values.put(PHONENUMBER, newcontact.getPhonerNr());
+        values.put(PHONENUMBER, newcontact.getPhoneNr());
         values.put(MESSAGE, newcontact.getMessage());
 
         db.insert(TABLE_CONTACTS, null, values);
@@ -63,7 +63,7 @@ public class DBHandler extends SQLiteOpenHelper {
         ContentValues values = new ContentValues();
         values.put(NAME, contact.getName());
         values.put(BIRTHDAY, contact.getBirthday());
-        values.put(PHONENUMBER, contact.getPhonerNr());
+        values.put(PHONENUMBER, contact.getPhoneNr());
         values.put(MESSAGE, contact.getMessage());
 
 
