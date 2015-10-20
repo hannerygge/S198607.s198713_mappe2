@@ -1,5 +1,6 @@
 package com.example.hanne_000.s198607s198713_mappe2;
 
+import android.app.ActionBar;
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -35,6 +36,9 @@ public class Message extends Activity{
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_main, menu);
+
+
+
         return true;
     }
 
@@ -46,9 +50,9 @@ public class Message extends Activity{
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        /*if (id == R.id.action_settings) {
-            return true;
-        }*/
+
+
+
 
         return super.onOptionsItemSelected(item);
     }
