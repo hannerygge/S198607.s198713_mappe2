@@ -26,10 +26,10 @@ public class NewContact extends Activity{
 
 
     public void createContact(){
-        String n = findViewById(R.id.name).toString();
-        String bd = findViewById(R.id.DatePicker).toString();
-        String t = findViewById(R.id.number).toString();
-        String m = findViewById(R.id.name).toString();
+        String n = "test"; //findViewById(R.id.name).toString();
+        String bd = "Test"; //findViewById(R.id.DatePicker).toString();
+        String t = "1234"; //findViewById(R.id.number).toString();
+        String m = "test"; //findViewById(R.id.message).toString();
 
         Contact tempContact = new Contact(n,bd,t,m);
 
