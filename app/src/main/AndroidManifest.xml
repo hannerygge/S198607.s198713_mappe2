@@ -2,6 +2,10 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.hanne_000.s198607s198713_mappe2" >
 
+    <uses-permission android:name="com.example.contentproviderbok.permission" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"></uses-permission>
+
+    <permission android:name="com.example.hanne_000.s198607s198713_mappe2.permission" />
 
     <application
         android:allowBackup="true"
@@ -52,7 +56,17 @@
                 android:resource="@xml/widget_info" />
         </receiver>
 
+        <provider
+            android:name="com.example.hanne_000.s198607s198713_mappe2.ContactCP"
+            android:authorities="com.example.anne_000.s198607s198713_mappe2"
+            android:enabled="true"
+            android:exported="true"
+            android:readPermission="com.example.hanne_000.s198607s198713_mappe2.permission"
+            android:writePermission="com.example.hanne_000.s198607s198713_mappe2.permission"></provider>
+
 
     </application>
+
+
 
 </manifest>

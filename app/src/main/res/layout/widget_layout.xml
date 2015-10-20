@@ -4,7 +4,8 @@
     android:layout_width="fill_parent"
     android:layout_height="wrap_content"
     android:layout_gravity="center"
-    android:background="@android:color/black">
+    android:background="@android:color/black"
+    style="@style/CustomStyle">
 
 
     <TextView android:id="@+id/widgettekst"
@@ -14,6 +15,7 @@
         android:layout_gravity="center_horizontal|center"
         android:layout_marginTop="5dip"
         android:padding="10dip"
-        android:textColor="@android:color/white"/>
+        style="@style/WhiteText">
+    </TextView>
 
 </LinearLayout>

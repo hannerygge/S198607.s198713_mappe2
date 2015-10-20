@@ -9,11 +9,14 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/contact_name"/>
+        android:text="@string/contact_name"
+        style="@style/WhiteText"/>
+
     <EditText
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/name"/>
+        android:id="@+id/name"
+        style="@style/WhiteText"/>
 <!-- -->
     <Button
         android:layout_width="wrap_content"
@@ -25,30 +28,34 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/showDate"
-        />
+        style="@style/WhiteText"/>
 <!-- -->
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/contact_phone"/>
+        android:text="@string/contact_phone"
+        style="@style/WhiteText"/>
     <EditText
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:id="@+id/number"
-        android:inputType="phone"/> <!--Vet ikke om denne fungerer riktig!-->
+        android:inputType="phone"
+        style="@style/WhiteText"/> <!--Vet ikke om denne fungerer riktig!-->
 <!-- -->
     <TextView
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:text="@string/contact_message"/>
+        android:text="@string/contact_message"
+        style="@style/WhiteText"/>
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/message"/>
+        android:id="@+id/message"
+        style="@style/WhiteText"/>
 <!--- -->
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/newcontactbutton"
-        />
+        style="@style/WhiteText"/>
 </LinearLayout>

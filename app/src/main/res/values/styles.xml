@@ -8,6 +8,9 @@
 
     <style name="CustomStyle">
         <item name="android:background">#000000</item>
+    </style>
+
+    <style name="WhiteText">
         <item name="android:textColor">#ffffff</item>
     </style>
 

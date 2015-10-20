@@ -8,19 +8,20 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/message_title"
-        />
+        style="@style/WhiteText"/>
 
     <EditText
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/StandardMessage"/>
+        android:id="@+id/StandardMessage"
+        style="@style/WhiteText"/>
 
     <TimePicker
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/DatePicker"
         android:layout_gravity="center"
-        >
+        style="@style/WhiteText">
     </TimePicker>
 
     <Button
