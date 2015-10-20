@@ -1,6 +1,5 @@
 package com.example.hanne_000.s198607s198713_mappe2;
 
-import android.app.Activity;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
@@ -53,10 +52,12 @@ public class Contact extends AppCompatActivity{
         return phonerNr;
     }
 
+    public int getId() { return ID; }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.contact);
+        setContentView(R.layout.new_contact);
     }
 
 }

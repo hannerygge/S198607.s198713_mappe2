@@ -32,10 +32,21 @@
 
         </activity>
 
-        <activity android:name=".Contact"
+        <activity android:name=".NewContact"
             android:parentActivityName=".MainActivity">
 
         </activity>
+
+        <receiver android:name=".Widget">
+            <intent-filter>
+                <action android:name="android.appwidget.acEon.APPWIDGET_UPDATE" />
+            </intent-filter>
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/widget_info" />
+        </receiver>
+
+
     </application>
 
 </manifest>
