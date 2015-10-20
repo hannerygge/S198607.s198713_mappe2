@@ -6,7 +6,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.EditText;
 
 public class MainActivity extends AppCompatActivity implements Settings.DialogClickListener{
 
@@ -57,7 +56,7 @@ public class MainActivity extends AppCompatActivity implements Settings.DialogCl
 
         switch (item.getItemId()) {
             case R.id.newcontact:
-                Intent i = new Intent(this, NewContact.class);
+                Intent i = new Intent(this, Contact.class);
                 startActivity(i);
                 return true;
 

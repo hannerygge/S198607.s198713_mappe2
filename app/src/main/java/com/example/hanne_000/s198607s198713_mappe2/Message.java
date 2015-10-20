@@ -1,14 +1,11 @@
 package com.example.hanne_000.s198607s198713_mappe2;
 
-import android.app.ActionBar;
-import android.app.Activity;
 import android.app.DialogFragment;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.TextView;
 import android.widget.TimePicker;
 
 public class Message extends AppCompatActivity{
@@ -56,7 +53,7 @@ public class Message extends AppCompatActivity{
 
         switch (item.getItemId()) {
             case R.id.newcontact:
-                Intent i = new Intent(this, NewContact.class);
+                Intent i = new Intent(this, Contact.class);
                 startActivity(i);
                 return true;
 

@@ -6,8 +6,6 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
-import java.sql.Date;
-
 /**
  * Created by hanne_000 on 20.10.2015.
  */
@@ -43,7 +41,7 @@ public class DBHandler extends SQLiteOpenHelper {
 
     }
 
-    public void addContact(NewContact newcontact)
+    public void addContact(Contact newcontact)
     {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
