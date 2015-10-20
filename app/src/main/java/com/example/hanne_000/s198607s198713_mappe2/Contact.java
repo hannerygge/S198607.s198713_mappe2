@@ -14,9 +14,12 @@ public class Contact extends AppCompatActivity{
     String phonerNr;
     String message;
 
-    public Contact(String n, Date bDay, String nr, Message m)
+    public Contact(String n, String bDay, String nr, String m)
     {
-
+        setName(n);
+        setBirthday(bDay);
+        setPhoneNr(nr);
+        setMessage(m);
     }
 
     public void setBirthday(String birthday) {
@@ -31,7 +34,7 @@ public class Contact extends AppCompatActivity{
         this.name = name;
     }
 
-    public void setPhonerNr(String phonerNr) {
+    public void setPhoneNr(String phonerNr) {
         this.phonerNr = phonerNr;
     }
 
@@ -48,7 +51,7 @@ public class Contact extends AppCompatActivity{
         return name;
     }
 
-    public String getPhonerNr() {
+    public String getPhoneNr() {
         return phonerNr;
     }
 
