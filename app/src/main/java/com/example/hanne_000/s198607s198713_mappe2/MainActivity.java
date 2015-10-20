@@ -6,15 +6,34 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
 
-public class MainActivity extends AppCompatActivity implements Settings.DialogClickListener{
+public class MainActivity extends AppCompatActivity implements Settings.DialogClickListener, DatePickerFragment.DialogClickListener{
+
+    Button test;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        onClickTestButton();
     }
 
+
+
+    public void onClickTestButton()
+    {
+        test = (Button)findViewById(R.id.testing);
+        test.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                DialogFragment dialog = new DatePickerFragment();
+                dialog.show(getFragmentManager(), "Avslutt");
+            }
+        });
+
+    }
     @Override
     public void onYesClick()
     {
