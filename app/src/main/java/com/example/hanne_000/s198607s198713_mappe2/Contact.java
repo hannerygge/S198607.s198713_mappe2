@@ -42,10 +42,7 @@ public class Contact extends AppCompatActivity{
         this.phonerNr = phonerNr;
     }
 
-    public String getBirthday() {
-
-        return birthday;
-    }
+    public String getBirthday() { return birthday; }
 
     public String getMessage() {
         return message;

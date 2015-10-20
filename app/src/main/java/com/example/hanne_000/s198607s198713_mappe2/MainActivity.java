@@ -19,13 +19,13 @@ public class MainActivity extends AppCompatActivity implements Settings.DialogCl
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        onClickTestButton();
-        onClickTest1Button();
+       // onClickTestButton();
+        //onClickTest1Button();
     }
 
 
 
-    public void onClickTestButton()
+    /*public void onClickTestButton()
     {
         test = (Button)findViewById(R.id.testing);
         test.setOnClickListener(new View.OnClickListener() {
@@ -36,7 +36,7 @@ public class MainActivity extends AppCompatActivity implements Settings.DialogCl
         });
 
     }
-
+        //Testing av fragmenter
     public void onClickTest1Button()
     {
         test1 = (Button)findViewById(R.id.testing1);
@@ -47,7 +47,7 @@ public class MainActivity extends AppCompatActivity implements Settings.DialogCl
             }
         });
 
-    }
+    }*/
     @Override
     public void onYesClick()
     {
