@@ -1,5 +1,6 @@
 package com.example.hanne_000.s198607s198713_mappe2;
 
+import android.app.DatePickerDialog;
 import android.app.DialogFragment;
 import android.app.FragmentManager;
 import android.os.Bundle;
@@ -9,7 +10,7 @@ import android.widget.TextView;
 /**
  * Created by hanne_000 on 20.10.2015.
  */
-public class DatePickerFragment extends DialogFragment {
+public class DatePickerFragment extends DialogFragment implements DatePickerDialog.OnDateSetListener{
 
 
     TextView tvdisplaydate;
@@ -19,6 +20,17 @@ public class DatePickerFragment extends DialogFragment {
     int day;
     private DialogClickListener callback;
     DatePicker.OnDateChangedListener dateListener;
+
+    @Override
+    public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
+
+
+        final java.util.Calendar c = java.util.Calendar.getInstance();
+        year = c.get(java.util.Calendar.YEAR);
+        month = c.get(java.util.Calendar.MONTH);
+        day = c.get(java.util.Calendar.DAY_OF_MONTH);
+
+    }
 
 
     interface DialogClickListener {
@@ -53,10 +65,6 @@ public class DatePickerFragment extends DialogFragment {
         tvdisplaydate = (TextView) getActivity().findViewById(R.id.tvDate);
         dpResult = (DatePicker) getActivity().findViewById(R.id.dpicker);
 
-        final java.util.Calendar c = java.util.Calendar.getInstance();
-        year = c.get(java.util.Calendar.YEAR);
-        month = c.get(java.util.Calendar.MONTH);
-        day = c.get(java.util.Calendar.DAY_OF_MONTH);
 
         tvdisplaydate.setText(new StringBuilder().append(month + 1).append("-").append(day).append("-").append(year));
         dpResult.init(year, month, day, dateListener);
