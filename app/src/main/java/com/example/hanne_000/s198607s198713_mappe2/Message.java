@@ -20,6 +20,7 @@ public class Message extends AppCompatActivity{
     public void updateStandardMessage(String message)
     {
         StandardMessage = message;
+
         //update database
         //update time
     }
@@ -28,7 +29,7 @@ public class Message extends AppCompatActivity{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.message);
-        // Inflate the menu; this adds items to the action bar if it is present.
+        //Inflate the menu; this adds items to the action bar if it is present.
         //Update standardmessage from db
         //update time from db
 
