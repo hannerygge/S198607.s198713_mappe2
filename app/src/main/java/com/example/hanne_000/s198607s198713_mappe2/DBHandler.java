@@ -57,7 +57,7 @@ public class DBHandler extends SQLiteOpenHelper {
 
     }
 
-    public int update(Contact contact)
+    public int editContact(Contact contact)
     {
         db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
