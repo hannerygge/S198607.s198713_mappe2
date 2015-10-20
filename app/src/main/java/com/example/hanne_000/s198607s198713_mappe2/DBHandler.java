@@ -67,8 +67,16 @@ public class DBHandler extends SQLiteOpenHelper {
         values.put(MESSAGE, contact.getMessage());
 
 
-        int updated = db.update(TABLE_CONTACTS, values, KEY_ID + "= ?", new String[]{String.valueOf(contact.getId())});
+        int updated = db.update(TABLE_CONTACTS, values, KEY_ID + "=?", new String[]{String.valueOf(contact.getId())});
         db.close();
         return updated;
     }
+
+    public void deleteContact(Contact contact)
+    {
+        db = this.getWritableDatabase();
+        db.delete(TABLE_CONTACTS, KEY_ID + "=?", new String[]{String.valueOf(contact.getId())});
+        db.close();
+    }
+
 }
