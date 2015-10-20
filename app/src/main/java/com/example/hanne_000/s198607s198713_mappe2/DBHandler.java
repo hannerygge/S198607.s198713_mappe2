@@ -19,6 +19,7 @@ public class DBHandler extends SQLiteOpenHelper {
     static String MESSAGE = "Message";
     static int DATABASE_VERSION = 1;
     static String DATABASE_NAME = "Contacts";
+    SQLiteDatabase db;
 
     public DBHandler(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
@@ -27,7 +28,7 @@ public class DBHandler extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
 
-        String CREATE_TABLE = "CREATE TABLE " + TABLE_CONTACTS + "(" + KEY_ID + " INTEGER PRIMARY KEY," + NAME + " TEXT,"  + BIRTHDAY + " DATE," + MESSAGE + " TEXT," + PHONENUMBER + " TEXT" + ")";
+        String CREATE_TABLE = "CREATE TABLE " + TABLE_CONTACTS + "(" + KEY_ID + " INTEGER PRIMARY KEY," + NAME + " TEXT,"  + BIRTHDAY + " DATE,"+ PHONENUMBER + " TEXT" + MESSAGE + " TEXT,"  + ")";
         Log.d("SQL", CREATE_TABLE);
         db.execSQL(CREATE_TABLE);
 
@@ -43,22 +44,39 @@ public class DBHandler extends SQLiteOpenHelper {
 
     public void addContact(Contact newcontact)
     {
-        SQLiteDatabase db = this.getWritableDatabase();
+        db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
 
         values.put(NAME, newcontact.getName());
         values.put(BIRTHDAY, newcontact.getBirthday());
+        values.put(PHONENUMBER, newcontact.getPhonerNr());
         values.put(MESSAGE, newcontact.getMessage());
-        values.put(PHONENUMBER, newcontact.getPhonerNr());
-        values.put(PHONENUMBER, newcontact.getPhonerNr());
 
         db.insert(TABLE_CONTACTS, null, values);
         db.close();
 
     }
 
-    public void update(Contact contact)
+    public int editContact(Contact contact)
     {
+        db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put(NAME, contact.getName());
+        values.put(BIRTHDAY, contact.getBirthday());
+        values.put(PHONENUMBER, contact.getPhonerNr());
+        values.put(MESSAGE, contact.getMessage());
 
+
+        int updated = db.update(TABLE_CONTACTS, values, KEY_ID + "=?", new String[]{String.valueOf(contact.getId())});
+        db.close();
+        return updated;
     }
+
+    public void deleteContact(Contact contact)
+    {
+        db = this.getWritableDatabase();
+        db.delete(TABLE_CONTACTS, KEY_ID + "=?", new String[]{String.valueOf(contact.getId())});
+        db.close();
+    }
+
 }

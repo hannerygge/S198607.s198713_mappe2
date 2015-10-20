@@ -10,6 +10,8 @@ import android.os.Bundle;
 //edit kontakter
 public class Edit extends Activity {
 
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
