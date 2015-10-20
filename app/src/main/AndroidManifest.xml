@@ -2,6 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.hanne_000.s198607s198713_mappe2" >
 
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"

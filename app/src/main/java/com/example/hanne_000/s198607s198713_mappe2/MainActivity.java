@@ -1,6 +1,7 @@
 package com.example.hanne_000.s198607s198713_mappe2;
 
 import android.app.DialogFragment;
+import android.app.FragmentManager;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -9,16 +10,17 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 
-public class MainActivity extends AppCompatActivity implements Settings.DialogClickListener, DatePickerFragment.DialogClickListener{
+public class MainActivity extends AppCompatActivity implements Settings.DialogClickListener{
 
     Button test;
-
+    Button test1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         onClickTestButton();
+        onClickTest1Button();
     }
 
 
@@ -29,6 +31,18 @@ public class MainActivity extends AppCompatActivity implements Settings.DialogCl
         test.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 DialogFragment dialog = new DatePickerFragment();
+                dialog.show(getFragmentManager(), "Avslutt");
+            }
+        });
+
+    }
+
+    public void onClickTest1Button()
+    {
+        test1 = (Button)findViewById(R.id.testing1);
+        test1.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                DialogFragment dialog = new TimePickerFragment();
                 dialog.show(getFragmentManager(), "Avslutt");
             }
         });
