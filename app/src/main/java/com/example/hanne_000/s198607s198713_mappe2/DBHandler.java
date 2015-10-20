@@ -48,6 +48,15 @@ public class DBHandler extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
 
+        values.put(NAME, newcontact.getName());
+        values.put(BIRTHDAY, newcontact.getBirthday());
+        values.put(MESSAGE, newcontact.getMessage());
+        values.put(PHONENUMBER, newcontact.getPhonerNr());
+        values.put(PHONENUMBER, newcontact.getPhonerNr());
+
+        db.insert(TABLE_CONTACTS, null, values);
+        db.close();
+
 
     }
 

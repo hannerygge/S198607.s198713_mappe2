@@ -13,7 +13,7 @@ public class NewContact extends AppCompatActivity{
 
     int ID;
     String name;
-    Date birthday;
+    String birthday;
     String phonerNr;
     String message;
 
@@ -22,7 +22,7 @@ public class NewContact extends AppCompatActivity{
 
     }
 
-    public void setBirthday(Date birthday) {
+    public void setBirthday(String birthday) {
         this.birthday = birthday;
     }
 
@@ -38,7 +38,7 @@ public class NewContact extends AppCompatActivity{
         this.phonerNr = phonerNr;
     }
 
-    public Date getBirthday() {
+    public String getBirthday() {
 
         return birthday;
     }
