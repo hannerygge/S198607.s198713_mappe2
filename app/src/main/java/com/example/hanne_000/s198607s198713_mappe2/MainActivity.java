@@ -56,7 +56,7 @@ public class MainActivity extends AppCompatActivity implements Settings.DialogCl
 
         switch (item.getItemId()) {
             case R.id.newcontact:
-                Intent i = new Intent(this, Contact.class);
+                Intent i = new Intent(this, NewContact.class);
                 startActivity(i);
                 return true;
 

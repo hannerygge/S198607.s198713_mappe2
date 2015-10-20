@@ -11,4 +11,5 @@
     <string name="message_title">Message to be sent</string>
     <string name="save">Save</string>
     <string name="contacts">Contacts</string>
+    <string name="new_contact_toast">New contact created.</string>
 </resources>

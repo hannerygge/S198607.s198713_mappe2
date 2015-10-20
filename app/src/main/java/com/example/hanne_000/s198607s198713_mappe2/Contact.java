@@ -22,6 +22,10 @@ public class Contact extends AppCompatActivity{
         setMessage(m);
     }
 
+    public Contact(){
+
+    }
+
     public void setBirthday(String birthday) {
         this.birthday = birthday;
     }
