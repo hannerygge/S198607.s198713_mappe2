@@ -14,8 +14,7 @@ import android.view.MenuItem;
  */
 public class ContactList extends FragmentActivity {
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void ContactList(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.contactlist);
 
