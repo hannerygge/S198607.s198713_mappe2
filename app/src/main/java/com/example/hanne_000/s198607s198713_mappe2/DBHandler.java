@@ -79,6 +79,17 @@ public class DBHandler extends SQLiteOpenHelper {
 
     }
 
+    public void addMessage(Message newMessage){
+        db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+
+        values.put(STANDARDMESSAGE, newMessage.getMessage());
+        values.put(TIME, newMessage.getTime());
+
+        db.insert(TABLE_MESSAGES, null, values);
+        db.close();
+    }
+
 
     public int editContact(Contact contact)
     {

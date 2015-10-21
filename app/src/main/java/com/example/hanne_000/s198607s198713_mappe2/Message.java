@@ -9,13 +9,13 @@ public class Message extends AppCompatActivity {
 
     int ID;
     String message;
-    String date;
+    String time;
 
     public Message( String m, String d){
 
 
         setMessage(m);
-        setDate(d);
+        setTime(d);
     }
 
     public Message(){
@@ -24,8 +24,8 @@ public class Message extends AppCompatActivity {
 
 
 
-    public void setDate(String date) {
-        this.date = date;
+    public void setTime(String date) {
+        this.time = date;
     }
 
     public void setID(int ID) {
@@ -36,9 +36,9 @@ public class Message extends AppCompatActivity {
         this.message = message;
     }
 
-    public String getDate() {
+    public String getTime() {
 
-        return date;
+        return time;
     }
 
     public int getID() {

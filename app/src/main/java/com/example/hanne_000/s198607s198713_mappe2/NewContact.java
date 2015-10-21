@@ -152,7 +152,7 @@ public class NewContact extends AppCompatActivity implements Settings.DialogClic
 
         switch (item.getItemId()) {
             case R.id.message:
-                Intent i = new Intent(this, Message.class);
+                Intent i = new Intent(this, NewMessage.class);
                 startActivity(i);
                 return true;
 

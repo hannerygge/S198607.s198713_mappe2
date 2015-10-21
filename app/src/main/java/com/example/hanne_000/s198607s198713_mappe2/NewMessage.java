@@ -61,7 +61,7 @@ public class NewMessage extends AppCompatActivity implements View.OnClickListene
         Message melding = new Message( m,t);
 
         DBHandler db = new DBHandler(getApplicationContext());
-
+        db.addMessage(melding);
         //toast
         Toast.makeText(getApplicationContext(), R.string.new_contact_toast,
                 Toast.LENGTH_SHORT).show();
