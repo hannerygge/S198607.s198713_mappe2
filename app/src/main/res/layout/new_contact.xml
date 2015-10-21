@@ -18,7 +18,13 @@
         android:id="@+id/name"
         style="@style/WhiteText"/>
 <!-- -->
-    <Button
+
+    <EditText
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/editdate"
+        style="@style/WhiteText"/>
+    <ImageButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/datepickerbutton"

@@ -1,21 +1,44 @@
 package com.example.hanne_000.s198607s198713_mappe2;
 
 import android.app.Activity;
+import android.app.DatePickerDialog;
+import android.app.Dialog;
 import android.app.DialogFragment;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View.OnClickListener;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.DatePicker;
+import android.widget.EditText;
+import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.Toast;
 
-public class NewContact extends AppCompatActivity implements Settings.DialogClickListener{
+import java.util.*;
+
+public class NewContact extends AppCompatActivity implements Settings.DialogClickListener, OnClickListener {
 
 
     Button button;
-    Button dateButton;
+    ImageButton dateButton;
+    Calendar c;
+    EditText et;
+    EditText name;
+    EditText number;
+    EditText message;
+    int day;
+    int month;
+    int year;
+
+
+
+
+
     public void onclicksomething(){
         button = (Button) findViewById(R.id.newcontactbutton);
         button.setOnClickListener(new View.OnClickListener(){
@@ -29,19 +52,36 @@ public class NewContact extends AppCompatActivity implements Settings.DialogClic
         super.onCreate(savedInstanceState);
         setContentView(R.layout.new_contact);
         onclicksomething();
-        datePickerOnClick();
+        //datePickerOnClick();
+
 
         //getSupportActionBar().setDisplayShowHomeEnabled(true);
         //getSupportActionBar().setLogo(R.drawable.testing);
         //getSupportActionBar().setIcon(R.drawable.testing);
+        dateButton = (ImageButton) findViewById(R.id.datepickerbutton);
+        c = Calendar.getInstance();
+        day = c.get(Calendar.DAY_OF_MONTH);
+        month = c.get(Calendar.MONTH);
+        year = c.get(Calendar.YEAR);
+        et = (EditText)findViewById(R.id.editdate);
+        name = (EditText)findViewById(R.id.name);
+        number = (EditText)findViewById(R.id.number);
+        message = (EditText)findViewById(R.id.message);
+        dateButton.setOnClickListener(this);
+
+
+
+
     }
 
 
     public void createContact(){
-        String n = "test"; //findViewById(R.id.name).toString();
-        String bd = "Test"; //findViewById(R.id.DatePicker).toString();
-        String t = "1234"; //findViewById(R.id.number).toString();
-        String m = "test"; //findViewById(R.id.message).toString();
+
+
+        String n = name.getText().toString(); //"test";
+        String bd = et.getText().toString(); //"Test";
+        String t = number.getText().toString(); // 12345678;
+        String m = message.getText().toString(); //"test";
 
         Contact tempContact = new Contact(n,bd,t,m);
 
@@ -55,7 +95,7 @@ public class NewContact extends AppCompatActivity implements Settings.DialogClic
     }
 
     public void datePickerOnClick(){
-        dateButton = (Button) findViewById(R.id.datepickerbutton);
+        dateButton = (ImageButton) findViewById(R.id.datepickerbutton);
         dateButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 DialogFragment dialog = new DatePickerFragment();
@@ -63,6 +103,32 @@ public class NewContact extends AppCompatActivity implements Settings.DialogClic
             }
         });
     }
+
+
+    public void onClick(View v) {
+        showDialog(0);
+    }
+
+    @Override
+    @Deprecated
+    protected Dialog onCreateDialog(int id) {
+        return new DatePickerDialog(this, datePickerListener, year, month, day);
+    }
+
+    private DatePickerDialog.OnDateSetListener datePickerListener = new DatePickerDialog.OnDateSetListener() {
+        public void onDateSet(DatePicker view, int selectedYear,
+                              int selectedMonth, int selectedDay) {
+            et.setText(selectedDay + " / " + (selectedMonth + 1) + " / "
+                    + selectedYear);
+        }
+    };
+
+
+
+
+
+
+
 
 
     @Override

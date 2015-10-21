@@ -29,6 +29,11 @@ public class DatePickerFragment extends DialogFragment implements DatePickerDial
     public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
 
 
+        this.year = year;
+        this.month = monthOfYear;
+        this.day = dayOfMonth;
+
+
 
     }
 
