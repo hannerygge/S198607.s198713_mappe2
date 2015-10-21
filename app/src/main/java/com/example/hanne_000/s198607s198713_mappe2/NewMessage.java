@@ -32,7 +32,7 @@ public class NewMessage extends AppCompatActivity implements View.OnClickListene
 
 
 
-    public void UpdateOnClick(){
+    public void updateOnClick(){
         saveButton = (Button) findViewById(R.id.savestandardsessage);
         saveButton.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
@@ -83,8 +83,7 @@ public class NewMessage extends AppCompatActivity implements View.OnClickListene
         etMessage = (EditText) findViewById(R.id.standardmessage);
         timeButton.setOnClickListener(this);
 
-
-        UpdateOnClick();
+        updateOnClick();
 
         //update time from db
 
