@@ -13,23 +13,31 @@
     <EditText
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/StandardMessage"
+        android:id="@+id/standardmessage"
         style="@style/WhiteText"/>
 
-    <TimePicker
+   <!-- <TimePicker
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/DatePicker"
+        android:id="@+id/datepicker"
         android:layout_gravity="center"
         style="@style/WhiteText">
-    </TimePicker>
+    </TimePicker>-->
+
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/SaveStandardMessage"
+        android:id="@+id/choosetime"
+        android:text="time"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/savestandardsessage"
         android:text="@string/save"
         />
+
 
 
 

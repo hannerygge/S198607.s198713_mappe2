@@ -15,12 +15,25 @@ public class Message extends AppCompatActivity{
     String StandardMessage; //Must get this from database!
     TimePicker dp; //get from db
 
-    Button button;
+    Button timeButton;
+    Button saveButton;
+
+
     public void UpdateOnClick(){
-        button = (Button) findViewById(R.id.SaveStandardMessage);
-        button.setOnClickListener(new View.OnClickListener(){
+        saveButton = (Button) findViewById(R.id.savestandardsessage);
+        saveButton.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
-                updateStandardMessage(findViewById(R.id.StandardMessage).toString());
+                updateStandardMessage(findViewById(R.id.standardmessage).toString());
+            }
+        });
+    }
+
+    public void timePickerOnClick(){
+        timeButton = (Button) findViewById(R.id.choosetime);
+        timeButton.setOnClickListener(new View.OnClickListener(){
+            public void onClick(View v){
+                DialogFragment dialog = new TimePickerFragment();
+                dialog.show(getFragmentManager(), "tekst");
             }
         });
     }
@@ -37,7 +50,9 @@ public class Message extends AppCompatActivity{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.message);
+        timePickerOnClick();
         UpdateOnClick();
+
         //update time from db
 
     }

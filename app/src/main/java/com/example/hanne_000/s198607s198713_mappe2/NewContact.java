@@ -1,6 +1,7 @@
 package com.example.hanne_000.s198607s198713_mappe2;
 
 import android.app.Activity;
+import android.app.DialogFragment;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -8,7 +9,9 @@ import android.widget.Toast;
 
 public class NewContact extends Activity{
 
+
     Button button;
+    Button dateButton;
     public void onclicksomething(){
         button = (Button) findViewById(R.id.newcontactbutton);
         button.setOnClickListener(new View.OnClickListener(){
@@ -22,6 +25,7 @@ public class NewContact extends Activity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.new_contact);
         onclicksomething();
+        datePickerOnClick();
     }
 
 
@@ -40,5 +44,15 @@ public class NewContact extends Activity{
                 Toast.LENGTH_SHORT).show();
 
 
+    }
+
+    public void datePickerOnClick(){
+        dateButton = (Button) findViewById(R.id.datepickerbutton);
+        dateButton.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                DialogFragment dialog = new DatePickerFragment();
+                dialog.show(getFragmentManager(), "tekst");
+            }
+        });
     }
 }
