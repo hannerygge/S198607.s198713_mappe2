@@ -20,13 +20,13 @@
 
     </item>
 
-   <item android:icon="@drawable/testing"
+  <!-- <item android:icon="@drawable/testing"
         android:id="@+id/calendar"
         android:orderInCategory="300"
         app:showAsAction="always"
         android:title="@string/action_item_calendar">
 
-    </item>
+    </item>-->
 
     <item android:icon="@drawable/testing"
         android:id="@+id/settings"

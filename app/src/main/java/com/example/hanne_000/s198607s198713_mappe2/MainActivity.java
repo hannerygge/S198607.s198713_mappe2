@@ -3,6 +3,7 @@ package com.example.hanne_000.s198607s198713_mappe2;
 import android.app.DialogFragment;
 import android.app.FragmentManager;
 import android.content.Intent;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -35,6 +36,18 @@ public class MainActivity extends AppCompatActivity implements Settings.DialogCl
             contactFragment.setArguments(getIntent().getExtras());
             getFragmentManager().beginTransaction().add(R.id.contactlistlayout, contactFragment).commit();
 */
+
+
+
+
+
+
+
+            //final ActionBar actionBar = getSupportActionBar();
+           // getSupportActionBar().setCustomView(R.layout.actionbar_layout);
+            //getSupportActionBar().setDisplayShowHomeEnabled(true);
+            //getSupportActionBar().setIcon(R.drawable.testing);
+
         }
     }
 
@@ -114,12 +127,12 @@ public class MainActivity extends AppCompatActivity implements Settings.DialogCl
                 startActivityForResult(j, 555);
                 return true;
 
-            case R.id.calendar:
+           /* case R.id.calendar:
                 Intent k = new Intent(this, Calendar.class);
                 //startActivity(j);
                 startActivityForResult(k, 555);
                 return true;
-
+*/
            case R.id.settings:
               /*  Intent l = new Intent(this, Settings.class);
                 //startActivity(j);

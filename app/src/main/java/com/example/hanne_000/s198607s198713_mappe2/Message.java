@@ -10,7 +10,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TimePicker;
 
-public class Message extends AppCompatActivity{
+public class Message extends AppCompatActivity implements Settings.DialogClickListener{
 
     String StandardMessage; //Must get this from database!
     TimePicker dp; //get from db
@@ -18,6 +18,22 @@ public class Message extends AppCompatActivity{
     Button timeButton;
     Button saveButton;
 
+
+    @Override
+    public void onYesClick() {
+        return;
+    }
+
+    @Override
+    public void onNoClick() {
+        return;
+    }
+
+    @Override
+    public void onFinishClick() {
+        return;
+
+    }
 
     public void UpdateOnClick(){
         saveButton = (Button) findViewById(R.id.savestandardsessage);
@@ -82,11 +98,11 @@ public class Message extends AppCompatActivity{
                 startActivity(i);
                 return true;
 
-            case R.id.calendar:
+          /*  case R.id.calendar:
                 Intent k = new Intent(this, Calendar.class);
                 //startActivity(j);
                 startActivityForResult(k, 555);
-                return true;
+                return true;*/
 
             case R.id.settings:
               /*  Intent l = new Intent(this, Settings.class);
