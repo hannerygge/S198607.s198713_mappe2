@@ -8,14 +8,26 @@ import android.view.Menu;
 import android.view.MenuItem;
 public class MainActivity extends AppCompatActivity implements Settings.DialogClickListener {
 
-    ContactList list;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         DBHandler dbh = new DBHandler(this);
-        list = new ContactList();
+
+        DBHandler db = new DBHandler(getApplicationContext());
+
+
+        if(findViewById(R.id.fragment_container) != null)
+        {
+            if(savedInstanceState != null)
+                return;
+
+            ContactView contactFragment = new ContactView();
+            contactFragment.setArguments(getIntent().getExtras());
+            getFragmentManager().beginTransaction().add(R.id.fragment_container, contactFragment).commit();
+
+        }
 
     }
 

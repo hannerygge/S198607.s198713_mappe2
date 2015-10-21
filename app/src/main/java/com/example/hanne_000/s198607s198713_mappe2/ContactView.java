@@ -41,14 +41,14 @@ public class ContactView extends Fragment implements LoaderManager.LoaderCallbac
     @Override
     public void onActivityCreated(Bundle savedInstanceState)
     {
-        DBHandler db = new DBHandler(getContext());
+        DBHandler db = new DBHandler(getActivity().getApplicationContext());
 
         super.onActivityCreated(savedInstanceState);
         loadermanager=getActivity().getLoaderManager();
         String[] uiBindFrom = {"Name"};
         int[] uiBindTo = {0};
 
-        mAdapter = new SimpleCursorAdapter(getContext(), android.R.layout.simple_list_item_1, db.getAllContacts(), uiBindFrom, uiBindTo, 0);
+        mAdapter = new SimpleCursorAdapter(getActivity().getApplicationContext(), android.R.layout.simple_list_item_1, db.getAllContacts(), uiBindFrom, uiBindTo, 0);
 
         ListView l = (ListView)getActivity().findViewById(R.id.listview);
         l.setAdapter(mAdapter);
