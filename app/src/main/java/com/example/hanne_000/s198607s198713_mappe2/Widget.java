@@ -5,6 +5,8 @@ import android.appwidget.AppWidgetManager;
 import android.appwidget.AppWidgetProvider;
 import android.content.Context;
 import android.content.Intent;
+import android.database.Cursor;
+import android.net.Uri;
 import android.widget.RemoteViews;
 
 import java.text.SimpleDateFormat;
@@ -19,6 +21,11 @@ public class Widget extends AppWidgetProvider {
 
         //Endre under for hva som skal skje i widgeten.
         //Bruke URI mot ContactCP for å hente ut dataene. (må kanskje sorteres slik at den som har bursdag nærmest kommer først..)
+        ContactCP cp = new ContactCP();
+
+        //Uri u  Uri.parse("content://" + PROVIDER + "/Contact");
+        //Cursor test = cp.query(Uri u, String[] projection, String selection, String[] selectionArgs, String sortOrder);
+
         Date date = new Date();
         java.text.DateFormat format = SimpleDateFormat.getTimeInstance(SimpleDateFormat.MEDIUM, Locale.getDefault());
         updateViews.setTextViewText(R.id.widgettekst, "Klokka er: " + format.format(date));
