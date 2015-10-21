@@ -18,6 +18,52 @@ public class ContactView extends Fragment implements LoaderManager.LoaderCallbac
     SimpleCursorAdapter mAdapter;
     String TAG = "Loader";
 
+    //skal ut!
+    /*public void getList() {
+        ContactCP cp = new ContactCP();
+        java.util.Calendar c = Calendar.getInstance();
+
+        Uri uri = cp.CONTENT_URI;
+
+        String selection = "WHERE Birthday > " + c.toString();
+
+        String[] mProjection = new String[]{
+                "Name",
+                "Birthday"
+        };
+        String[] mSelectionArgs = new String[]{""};
+
+        String sortOrder = "ORDER BY Birthday";
+
+
+        Cursor test = cp.query(uri, mProjection, selection, mSelectionArgs, sortOrder);
+
+        if (null == test) {
+            //Noe gikk galt
+            return;
+        } else if (test.getCount() < 1) {
+            //Returnerte ingenting o.o
+            return;
+        }
+        else{
+            if(test != null)
+            {
+                while(test.moveToNext()){
+                    test.getString(test.getColumnIndex("Name"));
+                    test.getString(test.getColumnIndex("Birthday"));
+
+                }
+            }
+            else{
+                //if something went wrong
+                return;
+            }
+        }
+
+    }*/
+
+
+
     public ContactView(){
 
     }
