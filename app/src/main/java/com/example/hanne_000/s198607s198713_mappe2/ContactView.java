@@ -3,84 +3,88 @@ package com.example.hanne_000.s198607s198713_mappe2;
 import android.app.Fragment;
 import android.app.LoaderManager;
 import android.content.CursorLoader;
+import android.content.Intent;
 import android.content.Loader;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.provider.ContactsContract;
+import android.util.Log;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ListView;
 import android.widget.SimpleCursorAdapter;
 
 /**
  * Created by Andre on 21.10.2015.
  */
 public class ContactView extends Fragment implements LoaderManager.LoaderCallbacks<Cursor> {
+
     LoaderManager loadermanager;
-    CursorLoader cursoorLoader;
+    CursorLoader cursorLoader;
     SimpleCursorAdapter mAdapter;
     String TAG = "Loader";
 
-    //skal ut!
-    /*public void getList() {
-        ContactCP cp = new ContactCP();
-        java.util.Calendar c = Calendar.getInstance();
 
-        Uri uri = cp.CONTENT_URI;
-
-        String selection = "WHERE Birthday > " + c.toString();
-
-        String[] mProjection = new String[]{
-                "Name",
-                "Birthday"
-        };
-        String[] mSelectionArgs = new String[]{""};
-
-        String sortOrder = "ORDER BY Birthday";
-
-
-        MyCursor test = cp.query(uri, mProjection, selection, mSelectionArgs, sortOrder);
-
-        if (null == test) {
-            //Noe gikk galt
-            return;
-        } else if (test.getCount() < 1) {
-            //Returnerte ingenting o.o
-            return;
-        }
-        else{
-            if(test != null)
-            {
-                while(test.moveToNext()){
-                    test.getString(test.getColumnIndex("Name"));
-                    test.getString(test.getColumnIndex("Birthday"));
-
-                }
-            }
-            else{
-                //if something went wrong
-                return;
-            }
-        }
-
-    }*/
-
-
-
-    public ContactView(){
+    public ContactView()
+    {
 
     }
+
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
+    {
+        return inflater.inflate(R.layout.liste, container, false);
+    }
+
+    @Override
+    public void onActivityCreated(Bundle savedInstanceState)
+    {
+        super.onActivityCreated(savedInstanceState);
+        loadermanager=getActivity().getLoaderManager();
+        String[] uiBindFrom = {ContactsContract.Contacts.DISPLAY_NAME};
+        int[] uiBindTo = {android.R.id.text1};
+
+        mAdapter = new SimpleCursorAdapter(getActivity().getBaseContext(), android.R.layout.simple_list_item_1, null, uiBindFrom, uiBindTo, 0);
+        ListView l = (ListView)getActivity().findViewById(R.id.listview);
+        l.setAdapter(mAdapter);
+        l.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> arg0, View arg1, int arg2, long arg3) {
+                //Toast.makeText(getActivity().getBaseContext(), arg2 + "Klikket", Toast.LENGTH_SHORT).show();
+                Intent i = new Intent(arg1.getContext(), Edit.class);
+                startActivity(i);
+            }
+        });
+        loadermanager.initLoader(0, null, this);
+    }
+
 
     @Override
     public Loader<Cursor> onCreateLoader(int id, Bundle args) {
-        return null;
+        String[] prosjection = {ContactsContract.Contacts._ID, ContactsContract.Contacts.DISPLAY_NAME};
+        cursorLoader = new CursorLoader(getActivity().getBaseContext(), ContactsContract.Contacts.CONTENT_URI, prosjection, null, null, null);
+        return cursorLoader;
+    }
+
+
+
+    @Override
+    public void onLoadFinished(Loader<Cursor> loader, Cursor cursor) {
+        if(mAdapter != null && cursor != null)
+            mAdapter.swapCursor(cursor);
+        else
+            Log.v(TAG, "OnLoadFinished: mAdapter is null");
+
     }
 
     @Override
-    public void onLoadFinished(Loader<Cursor> loader, Cursor data) {
-
-
-    }
-
-    @Override
-    public void onLoaderReset(Loader<Cursor> loader) {
+    public void onLoaderReset(Loader<Cursor> arg0) {
+        if(mAdapter != null)
+            mAdapter.swapCursor(null);
+        else
+            Log.v(TAG, "OnLoadFinished: mAdaper is null");
 
     }
 }

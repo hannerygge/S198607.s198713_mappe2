@@ -101,5 +101,9 @@ public class DBHandler extends SQLiteOpenHelper {
         db.close();
     }
 
+    public void getAllContacts(){
+        return;
+    }
+
 
 }

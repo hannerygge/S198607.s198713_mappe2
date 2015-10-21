@@ -26,82 +26,62 @@ import java.util.Calendar;
 
 public class MainActivity extends AppCompatActivity implements Settings.DialogClickListener {
 
-    Button test;
-    Button test1;
-
-    ListView lv;
-    TextView tv;
-
-
-
+    ContactList liste;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         DBHandler dbh = new DBHandler(this);
+        liste = new ContactList();
 
 
     }
 
+    //skal ut!
+    /*public void getList() {
+        ContactCP cp = new ContactCP();
+        java.util.Calendar c = Calendar.getInstance();
+
+        Uri uri = cp.CONTENT_URI;
+
+        String selection = "WHERE Birthday > " + c.toString();
+
+        String[] mProjection = new String[]{
+                "Name",
+                "Birthday"
+        };
+        String[] mSelectionArgs = new String[]{""};
+
+        String sortOrder = "ORDER BY Birthday";
 
 
+        MyCursor test = cp.query(uri, mProjection, selection, mSelectionArgs, sortOrder);
 
-/*
+        if (null == test) {
+            //Noe gikk galt
+            return;
+        } else if (test.getCount() < 1) {
+            //Returnerte ingenting o.o
+            return;
+        }
+        else{
+            if(test != null)
+            {
+                while(test.moveToNext()){
+                    test.getString(test.getColumnIndex("Name"));
+                    test.getString(test.getColumnIndex("Birthday"));
 
-
- if (findViewById(R.id.contactlistlayout) != null) {
-            if (savedInstanceState != null)
+                }
+            }
+            else{
+                //if something went wrong
                 return;
-
-
-
-
-          // Ikke contacts, men info fra DB
-
-            Contact contactFragment = new Contact();
-            contactFragment.setArguments(getIntent().getExtras());
-            getFragmentManager().beginTransaction().add(R.id.contactlistlayout, contactFragment).commit();
-            getFragmentManager().beginTransaction().a
-=======
-
-
-          // Ikke contacts, men info fra DB
-/*
-            Contacts contactFragment = new Contacts();
-            contactFragment.setArguments(getIntent().getExtras());
-            getFragmentManager().beginTransaction().add(R.id.contactlistlayout, contactFragment).commit();
-
-*/
-
-            //final ActionBar actionBar = getSupportActionBar();
-            // getSupportActionBar().setCustomView(R.layout.actionbar_layout);
-            //getSupportActionBar().setDisplayShowHomeEnabled(true);
-            //getSupportActionBar().setIcon(R.drawable.testing);
-
-
-    /*public void onClickTestButton()
-    {
-        test = (Button)findViewById(R.id.testing);
-        test.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                DialogFragment dialog = new DatePickerFragment();
-                dialog.show(getFragmentManager(), "Avslutt");
             }
-        });
-
-    }
-        //Testing av fragmenter
-    public void onClickTest1Button()
-    {
-        test1 = (Button)findViewById(R.id.testing1);
-        test1.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                DialogFragment dialog = new TimePickerFragment();
-                dialog.show(getFragmentManager(), "Avslutt");
-            }
-        });
+        }
 
     }*/
+
+
 
 
 
