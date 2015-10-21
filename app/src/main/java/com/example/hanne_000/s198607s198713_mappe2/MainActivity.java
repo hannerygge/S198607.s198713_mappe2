@@ -174,7 +174,7 @@ public class MainActivity extends AppCompatActivity implements Settings.DialogCl
                 return true;
 
             case R.id.message:
-                Intent j = new Intent(this, Message.class);
+                Intent j = new Intent(this, Edit.class);
                 //startActivity(j);
                 startActivityForResult(j, 555);
                 return true;
