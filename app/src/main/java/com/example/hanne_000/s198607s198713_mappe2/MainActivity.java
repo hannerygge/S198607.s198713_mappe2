@@ -24,7 +24,7 @@ import android.widget.TextView;
 import java.util.*;
 import java.util.Calendar;
 
-public class MainActivity extends ListActivity implements Settings.DialogClickListener {
+public class MainActivity extends AppCompatActivity implements Settings.DialogClickListener {
 
     Button test;
     Button test1;
