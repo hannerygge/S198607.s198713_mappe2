@@ -20,7 +20,7 @@ public class MainActivity extends AppCompatActivity implements Settings.DialogCl
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-       // onClickTestButton();
+         //onClickTestButton();
         //onClickTest1Button();
 
         if(findViewById(R.id.contactlistlayout) != null)
@@ -28,15 +28,15 @@ public class MainActivity extends AppCompatActivity implements Settings.DialogCl
             if(savedInstanceState != null)
                 return;
 
-          /*
+
 
           // Ikke contacts, men info fra DB
-
+/*
             Contacts contactFragment = new Contacts();
             contactFragment.setArguments(getIntent().getExtras());
             getFragmentManager().beginTransaction().add(R.id.contactlistlayout, contactFragment).commit();
-*/
 
+*/
 
 
 

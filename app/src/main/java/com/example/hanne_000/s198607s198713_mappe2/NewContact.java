@@ -31,9 +31,9 @@ public class NewContact extends AppCompatActivity implements Settings.DialogClic
         onclicksomething();
         datePickerOnClick();
 
-        getSupportActionBar().setDisplayShowHomeEnabled(true);
+        //getSupportActionBar().setDisplayShowHomeEnabled(true);
         //getSupportActionBar().setLogo(R.drawable.testing);
-        getSupportActionBar().setIcon(R.drawable.testing);
+        //getSupportActionBar().setIcon(R.drawable.testing);
     }
 
 
