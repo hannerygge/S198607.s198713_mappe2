@@ -24,7 +24,7 @@ import android.widget.TextView;
 import java.util.*;
 import java.util.Calendar;
 
-public class MainActivity extends AppCompatActivity implements Settings.DialogClickListener {
+public class MainActivity extends ListActivity implements Settings.DialogClickListener {
 
     Button test;
     Button test1;
@@ -41,7 +41,7 @@ public class MainActivity extends AppCompatActivity implements Settings.DialogCl
 
         DBHandler dbh = new DBHandler(this);
 
-       /* ArrayList<HashMap<String, String>> contactList = dbh.getList();
+        /*ArrayList<HashMap<String, String>> contactList = dbh.getList();
         if(contactList.size()!=0) {
 
             lv = (ListView) findViewById(R.id.listview);
@@ -63,8 +63,8 @@ public class MainActivity extends AppCompatActivity implements Settings.DialogCl
 
 
 
-            }*/
-
+            }
+*/
     }
 
 

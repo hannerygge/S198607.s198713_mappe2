@@ -83,7 +83,7 @@ public class DBHandler extends SQLiteOpenHelper {
         db.close();
     }
 
-    /* fant et eksempel som ikke virka
+    /*fant et eksempel som ikke virka
     public ArrayList<HashMap<String, String>> getList(){
 
         db = this.getReadableDatabase();
@@ -105,7 +105,7 @@ public class DBHandler extends SQLiteOpenHelper {
         return contactList;
 
 
-    }*/
+    } */
 
 
 }
