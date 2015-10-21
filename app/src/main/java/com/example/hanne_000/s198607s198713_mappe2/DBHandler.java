@@ -24,6 +24,9 @@ public class DBHandler extends SQLiteOpenHelper {
     static int DATABASE_VERSION = 1;
     static String DATABASE_NAME = "Contacts";
     SQLiteDatabase db;
+    static String TABLE_MESSAGES = "Messages";
+    static String STANDARDMESSAGE = "Message";
+    static String TIME = "Time";
 
     public DBHandler(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
@@ -32,16 +35,31 @@ public class DBHandler extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
 
+        createContactDatabase(db);
+        createMessageDatabase(db);
+
+
+    }
+
+    public void createContactDatabase(SQLiteDatabase db)
+    {
         String CREATE_TABLE = "CREATE TABLE " + TABLE_CONTACTS + "(" + KEY_ID + " INTEGER PRIMARY KEY," + NAME + " TEXT,"  + BIRTHDAY + " TEXT,"+ PHONENUMBER + " TEXT," + MESSAGE + " TEXT"  + ")";
         Log.d("SQL", CREATE_TABLE);
         db.execSQL(CREATE_TABLE);
+    }
 
+    public void createMessageDatabase(SQLiteDatabase db){
+
+        String CREATE_TABLE = "CREATE TABLE " + TABLE_MESSAGES + "(" + KEY_ID + " INTEGER PRIMARY KEY," + STANDARDMESSAGE + " TEXT,"  + TIME + " TEXT" + ")";
+        Log.d("SQL", CREATE_TABLE);
+        db.execSQL(CREATE_TABLE);
 
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         db.execSQL("DROP TABLE IF EXIST " + TABLE_CONTACTS);
+        db.execSQL("DROP TABLE IF EXIST " + TABLE_MESSAGES);
         onCreate(db);
 
     }

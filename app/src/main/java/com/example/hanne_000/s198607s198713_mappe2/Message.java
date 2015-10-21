@@ -14,13 +14,14 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TimePicker;
+import android.widget.Toast;
 
 import java.util.Calendar;
 
 public class Message extends AppCompatActivity implements Settings.DialogClickListener, View.OnClickListener {
 
     String StandardMessage; //Must get this from database!
-    TimePicker dp; //get from db
+
     EditText et;
     Calendar c;
     int hour;
@@ -65,6 +66,21 @@ public class Message extends AppCompatActivity implements Settings.DialogClickLi
         });
     }*/
 
+    /*public void createMessage(){
+
+
+        String m = number.getText().toString(); // 12345678;
+        String t = message.getText().toString(); //"test";
+
+        Contact tempContact = new Contact(n,bd,t,m);
+
+        DBHandler db = new DBHandler(getApplicationContext());
+        db.addContact(tempContact);
+        //toast
+        Toast.makeText(getApplicationContext(), R.string.new_contact_toast,
+                Toast.LENGTH_SHORT).show();
+    }
+*/
 
 
     public void updateStandardMessage(String message)
