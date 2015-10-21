@@ -76,6 +76,7 @@ public class ContactView extends Fragment implements LoaderManager.LoaderCallbac
     @Override
     public void onLoadFinished(Loader<Cursor> loader, Cursor data) {
 
+
     }
 
     @Override

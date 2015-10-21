@@ -76,36 +76,11 @@ public class DBHandler extends SQLiteOpenHelper {
         return updated;
     }
 
-    public void deleteContact(Contact contact)
-    {
+    public void deleteContact(Contact contact) {
         db = this.getWritableDatabase();
         db.delete(TABLE_CONTACTS, KEY_ID + "=?", new String[]{String.valueOf(contact.getId())});
         db.close();
     }
-
-    /*fant et eksempel som ikke virka
-    public ArrayList<HashMap<String, String>> getList(){
-
-        db = this.getReadableDatabase();
-
-        String selectQuery = "SELECT " + NAME + " FROM " + TABLE_CONTACTS;
-
-        ArrayList<HashMap<String, String>> contactList = new ArrayList<HashMap<String, String>>();
-        Cursor cursor = db.rawQuery(selectQuery, null);
-
-        if(cursor.moveToFirst()){
-            do{
-                HashMap<String, String> contact = new HashMap<String, String>();
-                contact.put("name", cursor.getString(cursor.getColumnIndex(NAME)));
-            }
-            while (cursor.moveToNext());
-        }
-        cursor.close();
-        db.close();
-        return contactList;
-
-
-    } */
 
 
 }

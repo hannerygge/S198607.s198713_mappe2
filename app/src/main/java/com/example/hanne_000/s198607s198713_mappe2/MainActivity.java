@@ -40,30 +40,7 @@ public class MainActivity extends AppCompatActivity implements Settings.DialogCl
         setContentView(R.layout.activity_main);
         DBHandler dbh = new DBHandler(this);
 
-        /*ArrayList<HashMap<String, String>> contactList = dbh.getList();
-        if(contactList.size()!=0) {
 
-            lv = (ListView) findViewById(R.id.listview);
-            lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-                @Override
-                public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                    tv = (TextView) findViewById(R.id.name);
-                    String contact = tv.getText().toString();
-                    Intent i = new Intent(MainActivity.this, Edit.class);
-                    i.putExtra("Name", Integer.parseInt(contact));
-                    startActivity(i);
-
-                }
-            });
-        }
-        else{
-            ListAdapter adapter = new SimpleAdapter(MainActivity.this, contactList, R.layout.contact_layout, new String[]{"name"}, new int[]{R.id.name});
-            setListAdapter(adapter);
-
-
-
-            }
-*/
     }
 
 
