@@ -1,6 +1,9 @@
 package com.example.hanne_000.s198607s198713_mappe2;
 
+import android.app.Dialog;
 import android.app.DialogFragment;
+import android.app.TimePickerDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -8,14 +11,21 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.TimePicker;
 
-public class Message extends AppCompatActivity implements Settings.DialogClickListener{
+import java.util.Calendar;
+
+public class Message extends AppCompatActivity implements Settings.DialogClickListener, View.OnClickListener {
 
     String StandardMessage; //Must get this from database!
     TimePicker dp; //get from db
-
-    Button timeButton;
+    EditText et;
+    Calendar c;
+    int hour;
+    int minute;
+    ImageButton timeButton;
     Button saveButton;
 
 
@@ -44,15 +54,18 @@ public class Message extends AppCompatActivity implements Settings.DialogClickLi
         });
     }
 
-    public void timePickerOnClick(){
-        timeButton = (Button) findViewById(R.id.choosetime);
+
+   /* public void timePickerOnClick(){
+        timeButton = (ImageButton) findViewById(R.id.choosetime);
         timeButton.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
                 DialogFragment dialog = new TimePickerFragment();
                 dialog.show(getFragmentManager(), "tekst");
             }
         });
-    }
+    }*/
+
+
 
     public void updateStandardMessage(String message)
     {
@@ -66,12 +79,50 @@ public class Message extends AppCompatActivity implements Settings.DialogClickLi
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.message);
-        timePickerOnClick();
+        //timePickerOnClick();
+
+        timeButton = (ImageButton) findViewById(R.id.choosetime);
+        c = Calendar.getInstance();
+        hour = c.get(Calendar.HOUR_OF_DAY);
+        minute = c.get(Calendar.MINUTE);
+        et = (EditText) findViewById(R.id.time);
+        timeButton.setOnClickListener(this);
+
+
         UpdateOnClick();
 
         //update time from db
 
     }
+
+    @Override
+    public void onClick(View v){
+        showDialog(0);
+    }
+
+    @Override
+    @Deprecated
+    protected Dialog onCreateDialog(int id){
+        return new TimePickerDialog(this, timePickerListener, hour, minute, false);
+
+    }
+
+    private TimePickerDialog.OnTimeSetListener timePickerListener = new TimePickerDialog.OnTimeSetListener(){
+        @Override
+        public void onTimeSet(TimePicker view, int hourOfDay, int min){
+            String amPM;
+            if(hourOfDay > 12){
+                hour = hourOfDay - 12;
+                amPM = "PM";
+            }
+            else{
+                hour = hourOfDay;
+                amPM = "AM";
+            }
+            et.setText(hour + " : " + min + " " + amPM);
+
+        }
+    };
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
