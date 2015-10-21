@@ -28,13 +28,15 @@ public class DBHandler extends SQLiteOpenHelper {
     static String STANDARDMESSAGE = "Message";
     static String TIME = "Time";
 
+    ContactCP cp;
+
     public DBHandler(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
     }
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-
+        cp = new ContactCP();
         createContactDatabase(db);
         createMessageDatabase(db);
 
@@ -114,8 +116,12 @@ public class DBHandler extends SQLiteOpenHelper {
         db.close();
     }
 
-    public void getAllContacts(){
-        return;
+    public Cursor getAllContacts(){
+        String[] mProjection = {NAME};
+        String mSelectionClause = null;
+        String[] mSelectionArgs = {""};
+        String sortOrder = NAME;
+        return cp.query(cp.CONTENT_URI, mProjection, mSelectionClause, mSelectionArgs, sortOrder);
     }
 
 

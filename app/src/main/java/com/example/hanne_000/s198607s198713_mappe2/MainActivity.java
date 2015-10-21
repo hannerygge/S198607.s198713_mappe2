@@ -1,39 +1,21 @@
 package com.example.hanne_000.s198607s198713_mappe2;
 
 import android.app.DialogFragment;
-import android.app.FragmentManager;
-import android.app.ListActivity;
 import android.content.Intent;
-import android.database.Cursor;
-import android.net.Uri;
-import android.provider.UserDictionary;
-import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.AdapterView;
-import android.widget.Button;
-import android.widget.ListAdapter;
-import android.widget.ListView;
-import android.widget.SimpleAdapter;
-import android.widget.SimpleCursorAdapter;
-import android.widget.TextView;
-
-import java.util.*;
-import java.util.Calendar;
-
 public class MainActivity extends AppCompatActivity implements Settings.DialogClickListener {
 
-    ContactList liste;
+    ContactList list;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         DBHandler dbh = new DBHandler(this);
-        liste = new ContactList();
-
+        list = new ContactList();
 
     }
 

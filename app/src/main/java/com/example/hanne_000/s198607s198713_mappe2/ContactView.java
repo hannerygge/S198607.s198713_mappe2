@@ -7,7 +7,6 @@ import android.content.Intent;
 import android.content.Loader;
 import android.database.Cursor;
 import android.os.Bundle;
-import android.provider.ContactsContract;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -25,6 +24,7 @@ public class ContactView extends Fragment implements LoaderManager.LoaderCallbac
     CursorLoader cursorLoader;
     SimpleCursorAdapter mAdapter;
     String TAG = "Loader";
+    ContactCP cp = new ContactCP();
 
 
     public ContactView()
@@ -41,12 +41,15 @@ public class ContactView extends Fragment implements LoaderManager.LoaderCallbac
     @Override
     public void onActivityCreated(Bundle savedInstanceState)
     {
+        DBHandler db = new DBHandler(getContext());
+
         super.onActivityCreated(savedInstanceState);
         loadermanager=getActivity().getLoaderManager();
-        String[] uiBindFrom = {ContactsContract.Contacts.DISPLAY_NAME};
-        int[] uiBindTo = {android.R.id.text1};
+        String[] uiBindFrom = {"Name"};
+        int[] uiBindTo = {0};
 
-        mAdapter = new SimpleCursorAdapter(getActivity().getBaseContext(), android.R.layout.simple_list_item_1, null, uiBindFrom, uiBindTo, 0);
+        mAdapter = new SimpleCursorAdapter(getContext(), android.R.layout.simple_list_item_1, db.getAllContacts(), uiBindFrom, uiBindTo, 0);
+
         ListView l = (ListView)getActivity().findViewById(R.id.listview);
         l.setAdapter(mAdapter);
         l.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -63,8 +66,8 @@ public class ContactView extends Fragment implements LoaderManager.LoaderCallbac
 
     @Override
     public Loader<Cursor> onCreateLoader(int id, Bundle args) {
-        String[] prosjection = {ContactsContract.Contacts._ID, ContactsContract.Contacts.DISPLAY_NAME};
-        cursorLoader = new CursorLoader(getActivity().getBaseContext(), ContactsContract.Contacts.CONTENT_URI, prosjection, null, null, null);
+        String[] projection = {"0", "Name"};
+        cursorLoader = new CursorLoader(getActivity().getBaseContext(), cp.CONTENT_URI, projection, null, null, null);
         return cursorLoader;
     }
 
