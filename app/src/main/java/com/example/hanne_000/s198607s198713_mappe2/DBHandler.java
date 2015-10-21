@@ -79,6 +79,7 @@ public class DBHandler extends SQLiteOpenHelper {
 
     }
 
+
     public int editContact(Contact contact)
     {
         db = this.getWritableDatabase();
