@@ -3,6 +3,9 @@ package com.example.hanne_000.s198607s198713_mappe2;
 import android.app.DialogFragment;
 import android.app.FragmentManager;
 import android.content.Intent;
+import android.database.Cursor;
+import android.net.Uri;
+import android.provider.UserDictionary;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -10,24 +13,35 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ListView;
+import android.widget.SimpleCursorAdapter;
 
-public class MainActivity extends AppCompatActivity implements Settings.DialogClickListener{
+import java.util.*;
+import java.util.Calendar;
+
+public class MainActivity extends AppCompatActivity implements Settings.DialogClickListener {
 
     Button test;
     Button test1;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-         //onClickTestButton();
-        //onClickTest1Button();
 
-        if(findViewById(R.id.contactlistlayout) != null)
-        {
-            if(savedInstanceState != null)
+        if (findViewById(R.id.contactlistlayout) != null) {
+            if (savedInstanceState != null)
                 return;
 
+/*
+          // Ikke contacts, men info fra DB
+
+            Contact contactFragment = new Contact();
+            contactFragment.setArguments(getIntent().getExtras());
+            getFragmentManager().beginTransaction().add(R.id.contactlistlayout, contactFragment).commit();
+            getFragmentManager().beginTransaction().a
+=======
 
 
           // Ikke contacts, men info fra DB
@@ -38,21 +52,13 @@ public class MainActivity extends AppCompatActivity implements Settings.DialogCl
 
 */
 
-
-
-
-
-
             //final ActionBar actionBar = getSupportActionBar();
-           // getSupportActionBar().setCustomView(R.layout.actionbar_layout);
+            // getSupportActionBar().setCustomView(R.layout.actionbar_layout);
             //getSupportActionBar().setDisplayShowHomeEnabled(true);
             //getSupportActionBar().setIcon(R.drawable.testing);
 
         }
     }
-
-
-
     /*public void onClickTestButton()
     {
         test = (Button)findViewById(R.id.testing);
@@ -76,20 +82,21 @@ public class MainActivity extends AppCompatActivity implements Settings.DialogCl
         });
 
     }*/
+
+
+
+
     @Override
-    public void onYesClick()
-    {
+    public void onYesClick() {
         return;
     }
 
-    public  void onFinishClick()
-    {
+    public void onFinishClick() {
         return;
     }
 
     @Override
-    public void onNoClick()
-    {
+    public void onNoClick() {
         return;
 
     }
@@ -133,16 +140,16 @@ public class MainActivity extends AppCompatActivity implements Settings.DialogCl
                 startActivityForResult(k, 555);
                 return true;
 */
-           case R.id.settings:
+            case R.id.settings:
               /*  Intent l = new Intent(this, Settings.class);
                 //startActivity(j);
                 startActivityForResult(l, 555);
                 */
 
-               DialogFragment dialog = new Settings();
-               dialog.show(getFragmentManager(), "test9");
+                DialogFragment dialog = new Settings();
+                dialog.show(getFragmentManager(), "test9");
 
-               return true;
+                return true;
 
             default:
                 return super.onOptionsItemSelected(item);
