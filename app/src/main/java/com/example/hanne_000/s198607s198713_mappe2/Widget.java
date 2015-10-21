@@ -24,7 +24,7 @@ public class Widget extends AppWidgetProvider {
         ContactCP cp = new ContactCP();
 
         //Uri u  Uri.parse("content://" + PROVIDER + "/Contact");
-        //Cursor test = cp.query(Uri u, String[] projection, String selection, String[] selectionArgs, String sortOrder);
+        //MyCursor test = cp.query(Uri u, String[] projection, String selection, String[] selectionArgs, String sortOrder);
 
         Date date = new Date();
         java.text.DateFormat format = SimpleDateFormat.getTimeInstance(SimpleDateFormat.MEDIUM, Locale.getDefault());

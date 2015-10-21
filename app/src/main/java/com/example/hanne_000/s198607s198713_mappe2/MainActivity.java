@@ -2,6 +2,7 @@ package com.example.hanne_000.s198607s198713_mappe2;
 
 import android.app.DialogFragment;
 import android.app.FragmentManager;
+import android.app.ListActivity;
 import android.content.Intent;
 import android.database.Cursor;
 import android.net.Uri;
@@ -12,9 +13,13 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
+import android.widget.ListAdapter;
 import android.widget.ListView;
+import android.widget.SimpleAdapter;
 import android.widget.SimpleCursorAdapter;
+import android.widget.TextView;
 
 import java.util.*;
 import java.util.Calendar;
@@ -24,17 +29,57 @@ public class MainActivity extends AppCompatActivity implements Settings.DialogCl
     Button test;
     Button test1;
 
+    ListView lv;
+    TextView tv;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        if (findViewById(R.id.contactlistlayout) != null) {
+        DBHandler dbh = new DBHandler(this);
+
+       /* ArrayList<HashMap<String, String>> contactList = dbh.getList();
+        if(contactList.size()!=0) {
+
+            lv = (ListView) findViewById(R.id.listview);
+            lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                @Override
+                public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                    tv = (TextView) findViewById(R.id.name);
+                    String contact = tv.getText().toString();
+                    Intent i = new Intent(MainActivity.this, Edit.class);
+                    i.putExtra("Name", Integer.parseInt(contact));
+                    startActivity(i);
+
+                }
+            });
+        }
+        else{
+            ListAdapter adapter = new SimpleAdapter(MainActivity.this, contactList, R.layout.contact_layout, new String[]{"name"}, new int[]{R.id.name});
+            setListAdapter(adapter);
+
+
+
+            }*/
+
+    }
+
+
+
+
+/*
+
+
+ if (findViewById(R.id.contactlistlayout) != null) {
             if (savedInstanceState != null)
                 return;
 
-/*
+
+
+
           // Ikke contacts, men info fra DB
 
             Contact contactFragment = new Contact();
@@ -57,8 +102,7 @@ public class MainActivity extends AppCompatActivity implements Settings.DialogCl
             //getSupportActionBar().setDisplayShowHomeEnabled(true);
             //getSupportActionBar().setIcon(R.drawable.testing);
 
-        }
-    }
+
     /*public void onClickTestButton()
     {
         test = (Button)findViewById(R.id.testing);
@@ -82,6 +126,7 @@ public class MainActivity extends AppCompatActivity implements Settings.DialogCl
         });
 
     }*/
+
 
 
 

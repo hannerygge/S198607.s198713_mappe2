@@ -66,6 +66,18 @@
         android:layout_height="match_parent"
         android:id="@+id/contactlistlayout">
 
+        <ListView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/listview"></ListView>
+
+
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/name"/>
 
 
     </FrameLayout>

@@ -36,7 +36,7 @@ public class ContactView extends Fragment implements LoaderManager.LoaderCallbac
         String sortOrder = "ORDER BY Birthday";
 
 
-        Cursor test = cp.query(uri, mProjection, selection, mSelectionArgs, sortOrder);
+        MyCursor test = cp.query(uri, mProjection, selection, mSelectionArgs, sortOrder);
 
         if (null == test) {
             //Noe gikk galt

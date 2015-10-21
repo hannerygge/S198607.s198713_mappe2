@@ -2,9 +2,13 @@ package com.example.hanne_000.s198607s198713_mappe2;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
+
+import java.util.ArrayList;
+import java.util.HashMap;
 
 /**
  * Created by hanne_000 on 20.10.2015.
@@ -78,5 +82,30 @@ public class DBHandler extends SQLiteOpenHelper {
         db.delete(TABLE_CONTACTS, KEY_ID + "=?", new String[]{String.valueOf(contact.getId())});
         db.close();
     }
+
+    /* fant et eksempel som ikke virka
+    public ArrayList<HashMap<String, String>> getList(){
+
+        db = this.getReadableDatabase();
+
+        String selectQuery = "SELECT " + NAME + " FROM " + TABLE_CONTACTS;
+
+        ArrayList<HashMap<String, String>> contactList = new ArrayList<HashMap<String, String>>();
+        Cursor cursor = db.rawQuery(selectQuery, null);
+
+        if(cursor.moveToFirst()){
+            do{
+                HashMap<String, String> contact = new HashMap<String, String>();
+                contact.put("name", cursor.getString(cursor.getColumnIndex(NAME)));
+            }
+            while (cursor.moveToNext());
+        }
+        cursor.close();
+        db.close();
+        return contactList;
+
+
+    }*/
+
 
 }
