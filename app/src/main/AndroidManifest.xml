@@ -4,8 +4,10 @@
 
     <uses-permission android:name="com.example.hanne_000.s198607s198713_mappe2.permission" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"></uses-permission>
-
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
     <permission android:name="com.example.hanne_000.s198607s198713_mappe2.permission" />
+    <uses-permission android:name="android.permission.SEND_SMS"/>
 
     <application
         android:allowBackup="true"
@@ -71,7 +73,7 @@
                 android:resource="@xml/widget_info" />
         </receiver>
 
-
+    <service android:name=".Service"/>
 
 
     </application>
