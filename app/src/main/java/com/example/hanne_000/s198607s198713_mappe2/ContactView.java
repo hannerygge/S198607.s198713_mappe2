@@ -57,7 +57,7 @@ public class ContactView extends Fragment implements LoaderManager.LoaderCallbac
         mAdapter = new SimpleCursorAdapter(getActivity().getApplicationContext(), android.R.layout.simple_list_item_1, query, uiBindFrom, uiBindTo, 0);
 
 
-        ListView l = (ListView)getActivity().findViewById(R.id.listview);
+        /*ListView l =  //(ListView)getActivity().findViewById(R.layout.activity_main;
         l.setAdapter(mAdapter);
         l.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -66,7 +66,7 @@ public class ContactView extends Fragment implements LoaderManager.LoaderCallbac
                 Intent i = new Intent(arg1.getContext(), Edit.class);
                 startActivity(i);
             }
-        });
+        });*/
         loadermanager.initLoader(0, null, this);
     }
 

@@ -24,7 +24,7 @@ public class ContactList extends FragmentActivity {
         DBHandler db = new DBHandler(getApplicationContext());
 
 
-        if(findViewById(R.id.fragment_container) != null)
+        /*if(findViewById(R.id.fragment_container) != null)
         {
 
             if(savedInstanceState != null)
@@ -34,7 +34,7 @@ public class ContactList extends FragmentActivity {
             contactFragment.setArguments(getIntent().getExtras());
             getFragmentManager().beginTransaction().add(R.id.fragment_container, contactFragment).commit();
 
-        }
+        }*/
 
     }
 
