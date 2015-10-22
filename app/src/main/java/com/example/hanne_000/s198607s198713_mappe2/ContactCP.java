@@ -15,7 +15,11 @@ import android.util.Log;
 
 public class ContactCP extends ContentProvider {
 
-    public static final String _ID = "_id";
+    public static String _ID = "_ID";
+    static String NAME = "Name";
+    static String BIRTHDAY = "Birthday";
+    static String PHONENUMBER = "Phone";
+    static String MESSAGE = "Message";
     public int ID;
     public static final String TITTEL = "Title";
     private static final String DB_NAVN = "Contacts";
@@ -47,7 +51,7 @@ public class ContactCP extends ContentProvider {
     }
 
 
-    /*private static class DatabaseHelper extends SQLiteOpenHelper{ // prøver noe
+   /* private static class DatabaseHelper extends SQLiteOpenHelper{ // prøver noe
 
         public DatabaseHelper(Context context) {
             super(context, DB_NAVN, null, DB_VERSJON);
@@ -65,6 +69,10 @@ public class ContactCP extends ContentProvider {
 
         @Override
         public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
+
+            db.execSQL("DROP TABLE IF EXIST " + TABLE);
+
+            onCreate(db);
 
         }
     }
