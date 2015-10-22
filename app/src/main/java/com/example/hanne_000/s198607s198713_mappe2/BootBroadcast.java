@@ -11,7 +11,7 @@ public class BootBroadcast extends WakefulBroadcastReceiver {
 
     @Override
     public void onReceive(Context context, Intent intent) {
-        Intent i = new Intent(context, Service.class);
+        Intent i = new Intent(context, SMS_Service.class);
         context.startActivity(i);
 
     }
