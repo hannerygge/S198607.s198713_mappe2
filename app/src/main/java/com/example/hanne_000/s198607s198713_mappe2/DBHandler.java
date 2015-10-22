@@ -117,6 +117,7 @@ public class DBHandler extends SQLiteOpenHelper {
     }
 
     public Cursor getAllContacts(){
+        cp = new ContactCP();
         String[] mProjection = {NAME};
         String mSelectionClause = null;
         String[] mSelectionArgs = null;

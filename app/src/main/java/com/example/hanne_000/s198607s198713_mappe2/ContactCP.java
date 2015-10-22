@@ -44,12 +44,15 @@ public class ContactCP extends ContentProvider {
 
     @Override
     public boolean onCreate() {
+        dbh = new DBHandler(getContext());
+        db = dbh.getReadableDatabase();
         return true;
     }
 
     @Override
     public Cursor query(Uri uri, String[] projection, String selection, String[] selectionArgs, String sortOrder) {
-
+        dbh = new DBHandler(getContext());
+        db = dbh.getReadableDatabase();
         Cursor cur = null;
         if(uriMatcher.match(uri) == Contact)
         {
