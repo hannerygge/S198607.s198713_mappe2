@@ -7,13 +7,13 @@
 
     <EditText
         android:layout_width="fill_parent"
-        android:layout_height="100dp"
+        android:layout_height="75dp"
         android:id="@+id/edit_name"
         style="@style/WhiteText"/>
 
     <EditText
         android:layout_width="fill_parent"
-        android:layout_height="100dp"
+        android:layout_height="75dp"
         android:id="@+id/edit_number"
         style="@style/WhiteText"/>
 
@@ -21,9 +21,11 @@
 
     <EditText
         android:layout_width="fill_parent"
-        android:layout_height="100dp"
+        android:layout_height="75dp"
         android:id="@+id/edit_birthday"
+        android:editable="false"
         style="@style/WhiteText"/>
+
     <ImageButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -31,7 +33,7 @@
 
     <EditText
         android:layout_width="fill_parent"
-        android:layout_height="100dp"
+        android:layout_height="75dp"
         android:id="@+id/edit_message"
         style="@style/WhiteText"/>
 

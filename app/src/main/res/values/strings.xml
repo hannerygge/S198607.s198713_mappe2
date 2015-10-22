@@ -15,10 +15,10 @@
     <string name="select_date">Select Date</string>
 
 <!-- For contact creation-->
-    <string name="contact_name">Name</string>
-    <string name="contact_bday">Birthday</string>
-    <string name="contact_phone">Phone number</string>
-    <string name="contact_message">Custom message</string>
+    <string name="contact_name">Name:</string>
+    <string name="contact_bday">Birthday:</string>
+    <string name="contact_phone">Phone number:</string>
+    <string name="contact_message">Custom message:</string>
     <!-- -->
 
 </resources>

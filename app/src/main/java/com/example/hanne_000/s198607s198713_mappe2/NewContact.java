@@ -54,7 +54,6 @@ public class NewContact extends AppCompatActivity implements Settings.DialogClic
         onclicksomething();
         //datePickerOnClick();
 
-
         //getSupportActionBar().setDisplayShowHomeEnabled(true);
         //getSupportActionBar().setLogo(R.drawable.testing);
         //getSupportActionBar().setIcon(R.drawable.testing);
@@ -68,6 +67,7 @@ public class NewContact extends AppCompatActivity implements Settings.DialogClic
         number = (EditText)findViewById(R.id.number);
         message = (EditText)findViewById(R.id.message);
         dateButton.setOnClickListener(this);
+
 
 
 

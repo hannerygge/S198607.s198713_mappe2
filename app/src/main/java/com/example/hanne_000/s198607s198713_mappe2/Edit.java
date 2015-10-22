@@ -3,7 +3,12 @@ package com.example.hanne_000.s198607s198713_mappe2;
 import android.app.Activity;
 import android.app.DatePickerDialog;
 import android.app.Dialog;
+import android.app.DialogFragment;
+import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
@@ -14,9 +19,22 @@ import android.widget.Toast;
 
 
 //edit kontakter
-public class Edit extends Activity implements View.OnClickListener {
+public class Edit extends AppCompatActivity implements View.OnClickListener, Settings.DialogClickListener{
+    @Override
+    public void onFinishClick() {
 
-    //get user and show data
+    }
+
+    @Override
+    public void onYesClick() {
+
+    }
+
+    @Override
+    public void onNoClick() {
+
+    }
+//get user and show data
 
     EditText editName;
     EditText editNumber;
@@ -108,6 +126,60 @@ public class Edit extends Activity implements View.OnClickListener {
         }
     };
 
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.menu_main, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle action bar item clicks here. The action bar will
+        // automatically handle clicks on the Home/Up button, so long
+        // as you specify a parent activity in AndroidManifest.xml.
+        int id = item.getItemId();
+
+        //noinspection SimplifiableIfStatement
+       /* if (id == R.id.action_settings) {
+            return true;
+        }*/
+
+
+        switch (item.getItemId()) {
+            case R.id.newcontact:
+                Intent i = new Intent(this, NewContact.class);
+                startActivity(i);
+                return true;
+
+            case R.id.message:
+                Intent j = new Intent(this, NewMessage.class);
+                //startActivity(j);
+                startActivityForResult(j, 555);
+                return true;
+
+           /* case R.id.calendar:
+                Intent k = new Intent(this, Calendar.class);
+                //startActivity(j);
+                startActivityForResult(k, 555);
+                return true;
+*/
+            case R.id.settings:
+              /*  Intent l = new Intent(this, Settings.class);
+                //startActivity(j);
+                startActivityForResult(l, 555);
+                */
+
+                DialogFragment dialog = new Settings();
+                dialog.show(getFragmentManager(), "test9");
+
+                return true;
+
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
 
 
 }
