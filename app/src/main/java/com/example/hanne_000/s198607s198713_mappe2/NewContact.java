@@ -27,15 +27,13 @@ public class NewContact extends AppCompatActivity implements Settings.DialogClic
     Button button;
     ImageButton dateButton;
     Calendar c;
-    EditText et;
+    EditText date;
     EditText name;
     EditText number;
     EditText message;
     int day;
     int month;
     int year;
-
-
 
 
 
@@ -54,6 +52,7 @@ public class NewContact extends AppCompatActivity implements Settings.DialogClic
         onclicksomething();
         //datePickerOnClick();
 
+
         //getSupportActionBar().setDisplayShowHomeEnabled(true);
         //getSupportActionBar().setLogo(R.drawable.testing);
         //getSupportActionBar().setIcon(R.drawable.testing);
@@ -62,7 +61,7 @@ public class NewContact extends AppCompatActivity implements Settings.DialogClic
         day = c.get(Calendar.DAY_OF_MONTH);
         month = c.get(Calendar.MONTH);
         year = c.get(Calendar.YEAR);
-        et = (EditText)findViewById(R.id.editdate);
+        date = (EditText)findViewById(R.id.editdate);
         name = (EditText)findViewById(R.id.name);
         number = (EditText)findViewById(R.id.number);
         message = (EditText)findViewById(R.id.message);
@@ -79,7 +78,7 @@ public class NewContact extends AppCompatActivity implements Settings.DialogClic
 
 
         String n = name.getText().toString(); //"test";
-        String bd = et.getText().toString(); //"Test";
+        String bd = date.getText().toString(); //"Test";
         String t = number.getText().toString(); // 12345678;
         String m = message.getText().toString(); //"test";
 
@@ -118,7 +117,7 @@ public class NewContact extends AppCompatActivity implements Settings.DialogClic
     private DatePickerDialog.OnDateSetListener datePickerListener = new DatePickerDialog.OnDateSetListener() {
         public void onDateSet(DatePicker view, int selectedYear,
                               int selectedMonth, int selectedDay) {
-            et.setText(selectedDay + " / " + (selectedMonth + 1) + " / "
+            date.setText(selectedDay + " / " + (selectedMonth + 1) + " / "
                     + selectedYear);
         }
     };

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+
+    <string name="app_name">mappe2</string>
+
+
+    <string name="action_settings">Instillinger</string>
+
+    <string name="action_item_contacts">Contacts</string>
+    <string name="action_item_edit">Endre</string>
+    <string name="action_item_calendar">Kalender</string>
+    <string name="action_item_settings">Instillinger</string>
+    <string name="message_title">Melding som skal sendes:</string>
+    <string name="save">Lagre</string>
+    <string name="contacts">Kontakter</string>
+    <string name="new_contact_toast">Ny kontakt lagre.</string>
+    <string name="select_date">Velg ny dato:</string>
+
+    <!-- For contact creation-->
+    <string name="contact_name">Navn:</string>
+    <string name="contact_bday">Bursdag:</string>
+    <string name="contact_phone">Telefon nummer:</string>
+    <string name="contact_message">Spesiell melding:</string>
+
+    <!--new message -->
+    <string name="settime">Sett tid:</string>
+
+    <!-- -->
+
+    <string name="delete">Slett</string>
+    <string name="languagequestion">Velg språk: </string>
+    <string name="changelanguage">Bytt språk!</string>
+    <string name="language">Engelsk</string>
+    <string name="ikkeok">Tilbake</string>
+
+
+
+</resources>

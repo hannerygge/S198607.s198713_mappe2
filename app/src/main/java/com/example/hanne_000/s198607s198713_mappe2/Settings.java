@@ -51,18 +51,17 @@ public class Settings extends DialogFragment {
 
 
 
-
     public Dialog onCreateDialog(Bundle savedInstanceState) {
 
         if(Locale.getDefault().getLanguage().contentEquals("nb"))
         {
-            return new AlertDialog.Builder(getActivity()).setTitle("test").setMessage("test1").setPositiveButton("Test2", new DialogInterface.OnClickListener(){
+            return new AlertDialog.Builder(getActivity()).setTitle(R.string.changelanguage).setMessage(R.string.languagequestion).setPositiveButton(R.string.ikkeok, new DialogInterface.OnClickListener(){
                         public void onClick(DialogInterface dialog, int whichButton)
                         {
                             callback.onYesClick();
                         }
                     }
-            ).setNegativeButton("test3", new DialogInterface.OnClickListener() {
+            ).setNegativeButton(R.string.language, new DialogInterface.OnClickListener() {
                         public void onClick (DialogInterface dialog,int whichButton){
                             changeLanguage("en");
 
@@ -77,13 +76,13 @@ public class Settings extends DialogFragment {
         }
         else
         {
-            return new AlertDialog.Builder(getActivity()).setTitle("test4").setMessage("test5").setPositiveButton("test6", new DialogInterface.OnClickListener(){
+            return new AlertDialog.Builder(getActivity()).setTitle(R.string.changelanguage).setMessage(R.string.languagequestion).setPositiveButton(R.string.ikkeok, new DialogInterface.OnClickListener(){
                         public void onClick(DialogInterface dialog, int whichButton)
                         {
                             callback.onYesClick();
                         }
                     }
-            ).setNegativeButton("test7", new DialogInterface.OnClickListener() {
+            ).setNegativeButton(R.string.language, new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int whichButton) {
 
                             changeLanguage("nb");
@@ -99,7 +98,6 @@ public class Settings extends DialogFragment {
 
 
     }
-
 
 
 
