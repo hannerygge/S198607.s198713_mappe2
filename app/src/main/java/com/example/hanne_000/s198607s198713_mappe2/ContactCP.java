@@ -44,13 +44,23 @@ public class ContactCP extends ContentProvider {
 
     @Override
     public boolean onCreate() {
-        return false;
+        return true;
     }
 
     @Override
     public Cursor query(Uri uri, String[] projection, String selection, String[] selectionArgs, String sortOrder) {
 
-        SQLiteQueryBuilder queryBuilder = new SQLiteQueryBuilder();
+        Cursor cur = null;
+        if(uriMatcher.match(uri) == Contact)
+        {
+            cur = db.query(TABLE, projection, _ID + " = " + uri.getPathSegments().get(1), selectionArgs, null, null, sortOrder);
+        }
+        else
+        {
+            cur = db.query(TABLE, null, null, null, null, null, null, null);
+        }
+
+        /*SQLiteQueryBuilder queryBuilder = new SQLiteQueryBuilder();
         queryBuilder.setTables(dbh.TABLE_CONTACTS);
 
 
@@ -61,21 +71,26 @@ public class ContactCP extends ContentProvider {
                 queryBuilder.appendWhere(dbh.KEY_ID + "=" + uri.getLastPathSegment());
                 break;
             case 2:
-                queryBuilder.appendWhere(dbh.KEY_ID + "=" + uri.getLastPathSegment());
                 break;
             default:
                 throw new IllegalArgumentException("Unknown URI");
 
         }
         Cursor cursor = queryBuilder.query(dbh.getReadableDatabase(), projection,selection, selectionArgs, null, null, sortOrder);
-        cursor.setNotificationUri(getContext().getContentResolver(), uri);
-        return cursor;
+        cursor.setNotificationUri(getContext().getContentResolver(), uri);*/
+        return cur;
 
     }
 
-    @Override
     public String getType(Uri uri) {
-        return null;
+        switch (uriMatcher.match(uri)) {
+            case Contacts:
+                return "vnd.android.cursor.dir/com.example.hanne_000.s198607s198713_mappe2";
+            case Contact:
+                return "vnd.android.cursor.item/com.example.hanne_000.s198607s198713_mappe2";
+            default:
+                throw new IllegalArgumentException("Ugyldig URI: " + uri);
+        }
     }
 
     @Override

@@ -119,9 +119,14 @@ public class DBHandler extends SQLiteOpenHelper {
     public Cursor getAllContacts(){
         String[] mProjection = {NAME};
         String mSelectionClause = null;
-        String[] mSelectionArgs = {""};
+        String[] mSelectionArgs = null;
         String sortOrder = NAME;
-        return cp.query(cp.CONTENT_URI, mProjection, mSelectionClause, mSelectionArgs, sortOrder);
+        Cursor test = cp.query(cp.CONTENT_URI, mProjection, mSelectionClause, mSelectionArgs, sortOrder);
+        if(null == test)
+        {
+            String test2 = "damn!";
+        }
+        return test;
     }
 
 

@@ -24,12 +24,12 @@ public class ContactView extends Fragment implements LoaderManager.LoaderCallbac
     CursorLoader cursorLoader;
     SimpleCursorAdapter mAdapter;
     String TAG = "Loader";
-    ContactCP cp = new ContactCP();
+    ContactCP cp;
 
 
     public ContactView()
     {
-
+        cp = new ContactCP();
     }
 
     @Override

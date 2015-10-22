@@ -13,8 +13,6 @@ public class MainActivity extends AppCompatActivity implements Settings.DialogCl
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        DBHandler dbh = new DBHandler(this);
-
         DBHandler db = new DBHandler(getApplicationContext());
 
 
