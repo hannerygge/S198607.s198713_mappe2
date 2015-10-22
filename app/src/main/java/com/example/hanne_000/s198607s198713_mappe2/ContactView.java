@@ -35,7 +35,7 @@ public class ContactView extends Fragment implements LoaderManager.LoaderCallbac
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
     {
-        return inflater.inflate(R.layout.liste, container, false);
+        return inflater.inflate(R.layout.list, container, false);
     }
 
     @Override

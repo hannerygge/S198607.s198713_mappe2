@@ -21,7 +21,7 @@ public class Widget extends AppWidgetProvider {
 
         //Endre under for hva som skal skje i widgeten.
         //Bruke URI mot ContactCP for å hente ut dataene. (må kanskje sorteres slik at den som har bursdag nærmest kommer først..)
-        ContactCP cp = new ContactCP();
+        //ContactCP cp = new ContactCP();
 
         //Uri u  Uri.parse("content://" + PROVIDER + "/Contact");
         //MyCursor test = cp.query(Uri u, String[] projection, String selection, String[] selectionArgs, String sortOrder);

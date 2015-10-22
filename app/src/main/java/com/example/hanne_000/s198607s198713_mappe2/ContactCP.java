@@ -37,13 +37,13 @@ public class ContactCP extends ContentProvider {
         uriMatcher.addURI(PROVIDER, "Contact/#", Contact);
     }
 
-    public ContactCP(){
-        Context test = getContext();
+    public ContactCP() {
+        /*Context test = getContext();
         if(test == null) {throw new IndexOutOfBoundsException();}
         dbh = new DBHandler(test);
         if(dbh == null) {throw new IndexOutOfBoundsException();}
         db = dbh.getReadableDatabase();
-        if(db == null) {throw new IndexOutOfBoundsException();}
+        if(db == null) {throw new IndexOutOfBoundsException();}*/
     }
 
     @Override

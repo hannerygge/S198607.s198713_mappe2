@@ -21,6 +21,7 @@ public class MainActivity extends ListActivity implements LoaderManager.LoaderCa
     SimpleCursorAdapter mAdapter;
 
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,7 +33,7 @@ public class MainActivity extends ListActivity implements LoaderManager.LoaderCa
 
         String[] fromColumns = {"Name"};
         int[] toViews = {android.R.id.text1};
-        mAdapter = new SimpleCursorAdapter(getApplicationContext(), R.layout.liste, contacts, fromColumns, toViews);
+        mAdapter = new SimpleCursorAdapter(getApplicationContext(), R.id.listview, contacts, fromColumns, toViews);
         list.setAdapter(mAdapter);
         getLoaderManager().initLoader(0, null, this);
 
