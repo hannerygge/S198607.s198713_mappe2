@@ -6,6 +6,7 @@ package com.example.hanne_000.s198607s198713_mappe2;
 
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 
@@ -25,6 +26,7 @@ public class ContactList extends FragmentActivity {
 
         if(findViewById(R.id.fragment_container) != null)
         {
+
             if(savedInstanceState != null)
                 return;
 
