@@ -15,7 +15,7 @@ import android.view.MenuItem;
 import android.widget.ListView;
 import android.support.v4.widget.SimpleCursorAdapter;
 
-public class MainActivity extends ListActivity implements LoaderManager.LoaderCallbacks<Cursor>, Settings.DialogClickListener {
+public class MainActivity extends ListActivity implements /*LoaderManager.LoaderCallbacks<Cursor>,*/ Settings.DialogClickListener {
     ListView list;
     //ContactCP cp;
     DBHandler db;
@@ -27,20 +27,22 @@ public class MainActivity extends ListActivity implements LoaderManager.LoaderCa
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        list = getListView();
+        //list = getListView();
+        list = (ListView)findViewById(android.R.id.list);
         db = new DBHandler(getApplicationContext());
         //cp = new ContactCP();
         contacts = db.getAllContacts();
         if (contacts.getCount() < 1)  {throw new IndexOutOfBoundsException();}
 
         String[] fromColumns = {"Name"};
-        int[] toViews = {R.id.name_entry};
+        int[] toViews = new int[] {R.id.name_entry};
+        contacts.moveToFirst();
+        mAdapter = new SimpleCursorAdapter(getApplicationContext(), R.layout.listitem, contacts, fromColumns, toViews, 0);
 
-        mAdapter = new SimpleCursorAdapter(getApplicationContext(), R.layout.listitem, contacts, fromColumns, toViews);
 
         if(list == null) {throw new IndexOutOfBoundsException();}
         list.setAdapter(mAdapter);
-        getLoaderManager().initLoader(0, null, this);
+        //getLoaderManager().initLoader(0, null, this);
 
 
 
@@ -195,9 +197,9 @@ public class MainActivity extends ListActivity implements LoaderManager.LoaderCa
             case 0:
                 // Returns a new CursorLoader
                 return new CursorLoader(
-                        getApplicationContext(),   // Parent activity context
+                        this,   // Parent activity context
                         CONTENT_URI,        // Table to query
-                        mProjection,     // Projection to return
+                        null,     // Projection to return
                         null,            // No selection clause
                         null,            // No selection arguments
                         null             // Default sort order
@@ -211,7 +213,7 @@ public class MainActivity extends ListActivity implements LoaderManager.LoaderCa
 
 
 
-
+/*
     @Override
     public void onLoadFinished(Loader<Cursor> loader, Cursor data) {
         mAdapter.swapCursor(data);
@@ -220,5 +222,5 @@ public class MainActivity extends ListActivity implements LoaderManager.LoaderCa
     @Override
     public void onLoaderReset(Loader<Cursor> loader) {
         mAdapter.swapCursor(null);
-    }
+    }*/
 }

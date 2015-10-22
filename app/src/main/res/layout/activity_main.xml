@@ -10,11 +10,11 @@
     tools:context=".MainActivity">
     <!--style="@style/CustomStyle"-->
 
-
+<!--
     <TextView
         android:text="@string/hello_world"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"/>-->
         <!--style="@style/WhiteText"/-->
 
 
@@ -75,17 +75,6 @@
             android:id="@android:id/list">
             <!--android:id="@android:id/list">-->
         </ListView>
-    <LinearLayout
-        android:orientation="vertical"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content" >
-    </LinearLayout>
     <!--</FrameLayout>-->
-
-
-
-
-
-
 
 </LinearLayout>
