@@ -15,11 +15,7 @@ import android.util.Log;
 
 public class ContactCP extends ContentProvider {
 
-    public static String _ID = "_ID";
-    static String NAME = "Name";
-    static String BIRTHDAY = "Birthday";
-    static String PHONENUMBER = "Phone";
-    static String MESSAGE = "Message";
+    public static final String _ID = "_id";
     public int ID;
     public static final String TITTEL = "Title";
     private static final String DB_NAVN = "Contacts";
@@ -50,33 +46,6 @@ public class ContactCP extends ContentProvider {
         if(db == null) {throw new IndexOutOfBoundsException();}
     }
 
-
-   /* private static class DatabaseHelper extends SQLiteOpenHelper{ // prøver noe
-
-        public DatabaseHelper(Context context) {
-            super(context, DB_NAVN, null, DB_VERSJON);
-
-        }
-
-        @Override
-        public void onCreate(SQLiteDatabase db) {
-             String CREATE_TABLE = "CREATE TABLE " + TABLE + "(" + _ID + " INTEGER PRIMARY KEY," + NAME + " TEXT,"  + BIRTHDAY + " TEXT,"+ PHONENUMBER + " TEXT," + MESSAGE + " TEXT"  + ")";
-            Log.d("SQL", CREATE_TABLE);
-            db.execSQL(CREATE_TABLE);
-
-
-        }
-
-        @Override
-        public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-
-            db.execSQL("DROP TABLE IF EXIST " + TABLE);
-
-            onCreate(db);
-
-        }
-    }
-*/
     @Override
     public int delete(Uri uri, String selection, String[] selectionArgs) {
         return 0;
