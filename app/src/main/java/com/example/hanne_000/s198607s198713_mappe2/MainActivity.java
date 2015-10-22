@@ -2,6 +2,7 @@ package com.example.hanne_000.s198607s198713_mappe2;
 
 import android.app.DialogFragment;
 import android.app.ListActivity;
+import android.app.ListFragment;
 import android.app.LoaderManager;
 import android.content.CursorLoader;
 import android.content.Intent;
@@ -9,13 +10,16 @@ import android.content.Loader;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 import android.support.v4.widget.SimpleCursorAdapter;
 
-public class MainActivity extends ListActivity implements /*LoaderManager.LoaderCallbacks<Cursor>,*/ Settings.DialogClickListener {
+public class MainActivity extends AppCompatActivity implements /*LoaderManager.LoaderCallbacks<Cursor>,*/ Settings.DialogClickListener {
     ListView list;
     //ContactCP cp;
     DBHandler db;
@@ -27,6 +31,8 @@ public class MainActivity extends ListActivity implements /*LoaderManager.Loader
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        //ListViewActivity lva = new ListViewActivity();
         //list = getListView();
         list = (ListView)findViewById(android.R.id.list);
         db = new DBHandler(getApplicationContext());
@@ -40,11 +46,19 @@ public class MainActivity extends ListActivity implements /*LoaderManager.Loader
         mAdapter = new SimpleCursorAdapter(getApplicationContext(), R.layout.listitem, contacts, fromColumns, toViews, 0);
 
 
+
         if(list == null) {throw new IndexOutOfBoundsException();}
         list.setAdapter(mAdapter);
         //getLoaderManager().initLoader(0, null, this);
 
+        list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Intent i = new Intent(MainActivity.this, Edit.class);
+                startActivity(i);
 
+            }
+        });
 
         /*if(findViewById(R.id.fragment_container) != null)
         {
@@ -106,10 +120,44 @@ public class MainActivity extends ListActivity implements /*LoaderManager.Loader
 
 
 
+/*
+    public static class ListViewActivity extends ListActivity {
+
+        ListView list;
+        //ContactCP cp;
+        DBHandler db;
+        Cursor contacts;
+        SimpleCursorAdapter mAdapter;
 
 
+        @Override
+        protected void onCreate(Bundle savedInstanceState) {
+            super.onCreate(savedInstanceState);
+            setContentView(R.layout.activity_main);
+            //list = getListView();
+            list = (ListView) findViewById(android.R.id.list);
+            db = new DBHandler(getApplicationContext());
+            //cp = new ContactCP();
+            contacts = db.getAllContacts();
+            if (contacts.getCount() < 1) {
+                throw new IndexOutOfBoundsException();
+            }
+
+            String[] fromColumns = {"Name"};
+            int[] toViews = new int[]{R.id.name_entry};
+            contacts.moveToFirst();
+            mAdapter = new SimpleCursorAdapter(getApplicationContext(), R.layout.listitem, contacts, fromColumns, toViews, 0);
 
 
+            if (list == null) {
+                throw new IndexOutOfBoundsException();
+            }
+            list.setAdapter(mAdapter);
+
+        }
+
+    }
+*/
     @Override
     public void onYesClick() {
         return;
@@ -153,7 +201,7 @@ public class MainActivity extends ListActivity implements /*LoaderManager.Loader
                 return true;
 
             case R.id.message:
-                Intent j = new Intent(this, Message.class);
+                Intent j = new Intent(this, NewMessage.class);
                 //startActivity(j);
                 startActivityForResult(j, 555);
                 return true;
@@ -185,7 +233,7 @@ public class MainActivity extends ListActivity implements /*LoaderManager.Loader
         return new CursorLoader(this);
     }*/
 
-    public Loader<Cursor> onCreateLoader(int loaderID, Bundle bundle)
+   /* public Loader<Cursor> onCreateLoader(int loaderID, Bundle bundle)
     {
         String[] mProjection = {"rowid as _id", "Name"};
         String PROVIDER = "com.example.hanne_000.s198607s198713_mappe2";
@@ -193,7 +241,7 @@ public class MainActivity extends ListActivity implements /*LoaderManager.Loader
     /*
      * Takes action based on the ID of the Loader that's being created
      */
-        switch (loaderID) {
+      /*  switch (loaderID) {
             case 0:
                 // Returns a new CursorLoader
                 return new CursorLoader(
@@ -208,7 +256,7 @@ public class MainActivity extends ListActivity implements /*LoaderManager.Loader
                 // An invalid id was passed in
                 return null;
         }
-    }
+    }*/
 
 
 

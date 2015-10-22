@@ -76,8 +76,7 @@
     <service android:name=".Service"/>
 
         <receiver android:name=".AlarmReceiver"
-            android:process=":remote"
-            ></receiver>
+            android:process=":remote"></receiver>
 
         <receiver android:name="com.example.hanne_000.s198607s198713_mappe2.BootBroadcast">
             <intent-filter>
