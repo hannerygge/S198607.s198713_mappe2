@@ -56,6 +56,10 @@ public class Contact extends AppCompatActivity{
         return phonerNr;
     }
 
+    public void setID(int ID) {
+        this.ID = ID;
+    }
+
     public int getId() { return ID; }
 
     @Override

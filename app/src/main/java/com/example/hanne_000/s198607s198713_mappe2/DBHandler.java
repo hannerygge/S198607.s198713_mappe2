@@ -95,13 +95,14 @@ public class DBHandler extends SQLiteOpenHelper {
     {
         db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
+        values.put(KEY_ID, contact.getId());
         values.put(NAME, contact.getName());
         values.put(BIRTHDAY, contact.getBirthday());
         values.put(PHONENUMBER, contact.getPhoneNr());
         values.put(MESSAGE, contact.getMessage());
 
 
-        int updated = db.update(TABLE_CONTACTS, values, KEY_ID + "=?", new String[]{String.valueOf(contact.getId())});
+        int updated = db.update(TABLE_CONTACTS, values, KEY_ID + "= ?", new String[]{String.valueOf(contact.getId())});
         db.close();
         return updated;
     }
@@ -114,7 +115,7 @@ public class DBHandler extends SQLiteOpenHelper {
 
     public Cursor getAllContacts() {
         db = this.getReadableDatabase();
-        String[] mProjection = {"rowid as _id", "Name"};
+        String[] mProjection = {"rowid as _id", "Name", "Birthday", "Phone", "Message"};
         String mSelectionClause = null;
         String[] mSelectionArgs = null;
         String groupby = null;
@@ -122,5 +123,19 @@ public class DBHandler extends SQLiteOpenHelper {
         String sortOrder = "Name";
         Cursor test = db.query(TABLE_CONTACTS, mProjection, mSelectionClause, mSelectionArgs, groupby, having, sortOrder);
         return test;
+    }
+    public Cursor getContact(int id){
+        db = this.getReadableDatabase();
+        String[] mProjection = {"rowid as _id", "Name", "Birthday", "Phone", "Message"};
+        String mSelectionClause = "_id = " + (id);
+        String[] mSelectionArgs = null;
+        String groupby = null;
+        String having = null;
+        String sortOrder = "Name";
+        Cursor test = db.query(TABLE_CONTACTS, mProjection, mSelectionClause, mSelectionArgs, groupby, having, sortOrder);
+        return test;
+
+
+
     }
 }

@@ -55,8 +55,11 @@ public class MainActivity extends AppCompatActivity implements /*LoaderManager.L
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
-                Intent i = new Intent(MainActivity.this, Edit.class);
-                //i.putExtra()
+
+                Intent i = new Intent(view.getContext(), Edit.class);
+
+
+                i.putExtra("id", (int)id);
                 startActivity(i);
 
             }

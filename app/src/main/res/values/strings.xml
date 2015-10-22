@@ -25,4 +25,6 @@
 
     <!-- -->
 
+    <string name="delete">Delete</string>
+
 </resources>
