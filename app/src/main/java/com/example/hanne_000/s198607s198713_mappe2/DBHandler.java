@@ -28,15 +28,13 @@ public class DBHandler extends SQLiteOpenHelper {
     static String STANDARDMESSAGE = "Message";
     static String TIME = "Time";
 
-    ContactCP cp;
-
     public DBHandler(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
+
     }
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        cp = new ContactCP();
         createContactDatabase(db);
         createMessageDatabase(db);
 
@@ -60,7 +58,6 @@ public class DBHandler extends SQLiteOpenHelper {
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-
         db.execSQL("DROP TABLE IF EXIST " + TABLE_MESSAGES);
         db.execSQL("DROP TABLE IF EXIST " + TABLE_CONTACTS);
 
@@ -116,19 +113,7 @@ public class DBHandler extends SQLiteOpenHelper {
         db.close();
     }
 
-    public Cursor getAllContacts(){
-        cp = new ContactCP();
-        String[] mProjection = {NAME};
-        String mSelectionClause = null;
-        String[] mSelectionArgs = null;
-        String sortOrder = NAME;
-        Cursor test = cp.query(cp.CONTENT_URI, mProjection, mSelectionClause, mSelectionArgs, sortOrder);
-        if(null == test)
-        {
-            String test2 = "damn!";
-        }
-        return test;
-    }
+
 
 
 }

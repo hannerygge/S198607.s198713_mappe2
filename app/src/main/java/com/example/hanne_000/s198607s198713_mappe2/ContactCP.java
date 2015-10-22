@@ -26,7 +26,7 @@ public class ContactCP extends ContentProvider {
     private static final int Contacts = 2;
 
     SQLiteDatabase db;
-    DBHandler dbh = new DBHandler(getContext());
+    DBHandler dbh;
     private static final UriMatcher uriMatcher;
 
     public static final Uri CONTENT_URI = Uri.parse("content://" + PROVIDER + "/Contact");
@@ -37,6 +37,15 @@ public class ContactCP extends ContentProvider {
         uriMatcher.addURI(PROVIDER, "Contact/#", Contact);
     }
 
+    public ContactCP(){
+        Context test = getContext();
+        if(test == null) {throw new IndexOutOfBoundsException();}
+        dbh = new DBHandler(test);
+        if(dbh == null) {throw new IndexOutOfBoundsException();}
+        db = dbh.getReadableDatabase();
+        if(db == null) {throw new IndexOutOfBoundsException();}
+    }
+
     @Override
     public int delete(Uri uri, String selection, String[] selectionArgs) {
         return 0;
@@ -44,23 +53,23 @@ public class ContactCP extends ContentProvider {
 
     @Override
     public boolean onCreate() {
-        dbh = new DBHandler(getContext());
-        db = dbh.getReadableDatabase();
+
         return true;
     }
 
     @Override
     public Cursor query(Uri uri, String[] projection, String selection, String[] selectionArgs, String sortOrder) {
-        dbh = new DBHandler(getContext());
-        db = dbh.getReadableDatabase();
+
         Cursor cur = null;
         if(uriMatcher.match(uri) == Contact)
         {
-            cur = db.query(TABLE, projection, _ID + " = " + uri.getPathSegments().get(1), selectionArgs, null, null, sortOrder);
+            if(db == null) {throw new IndexOutOfBoundsException();}
+            cur = this.db.query(TABLE, projection, _ID + " = " + uri.getPathSegments().get(1), selectionArgs, null, null, sortOrder);
         }
         else
         {
-            cur = db.query(TABLE, null, null, null, null, null, null, null);
+            if(db == null) {throw new IndexOutOfBoundsException();}
+            cur = this.db.query(TABLE, null, null, null, null, null, null, null);
         }
 
         /*SQLiteQueryBuilder queryBuilder = new SQLiteQueryBuilder();
@@ -99,10 +108,10 @@ public class ContactCP extends ContentProvider {
     @Override
     public Uri insert(Uri uri, ContentValues values) {
 
-        SQLiteDatabase db = dbh.getWritableDatabase();
-        db.insert(TABLE, null, values);
+        SQLiteDatabase db2 = dbh.getWritableDatabase();
+        db2.insert(TABLE, null, values);
 
-        Cursor c = db.query(TABLE, null, null, null, null, null, null);
+        Cursor c = db2.query(TABLE, null, null, null, null, null, null);
         c.moveToLast();
         long minid = c.getLong(0);
         getContext().getContentResolver().notifyChange(uri, null);
@@ -113,6 +122,18 @@ public class ContactCP extends ContentProvider {
     @Override
     public int update(Uri uri, ContentValues values, String selection, String[] selectionArgs) {
         return 0;
+    }
+    public Cursor getAllContacts(){
+        String[] mProjection = {"Name"};
+        String mSelectionClause = null;
+        String[] mSelectionArgs = null;
+        String sortOrder = "Name";
+        Cursor test = query(CONTENT_URI, mProjection, mSelectionClause, mSelectionArgs, sortOrder);
+        if(null == test)
+        {
+            String test2 = "damn!";
+        }
+        return test;
     }
 }
 

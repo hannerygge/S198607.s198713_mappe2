@@ -41,6 +41,10 @@ public class ContactView extends Fragment implements LoaderManager.LoaderCallbac
     @Override
     public void onActivityCreated(Bundle savedInstanceState)
     {
+        if(getActivity().getApplicationContext() == null)
+        {
+            throw new IndexOutOfBoundsException();
+        }
         DBHandler db = new DBHandler(getActivity().getApplicationContext());
 
         super.onActivityCreated(savedInstanceState);
@@ -48,7 +52,7 @@ public class ContactView extends Fragment implements LoaderManager.LoaderCallbac
         String[] uiBindFrom = {"Name"};
         int[] uiBindTo = {0};
 
-        Cursor query = db.getAllContacts();
+        Cursor query = cp.getAllContacts();
 
         mAdapter = new SimpleCursorAdapter(getActivity().getApplicationContext(), android.R.layout.simple_list_item_1, query, uiBindFrom, uiBindTo, 0);
 

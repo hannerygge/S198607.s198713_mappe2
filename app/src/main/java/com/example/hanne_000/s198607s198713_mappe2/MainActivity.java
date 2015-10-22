@@ -2,19 +2,21 @@ package com.example.hanne_000.s198607s198713_mappe2;
 
 import android.app.DialogFragment;
 import android.content.Intent;
+import android.database.Cursor;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 public class MainActivity extends AppCompatActivity implements Settings.DialogClickListener {
-
+    ContactCP cp;
+    DBHandler db;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        DBHandler db = new DBHandler(getApplicationContext());
-
+        db = new DBHandler(getApplicationContext());
+        cp = new ContactCP();
 
         if(findViewById(R.id.fragment_container) != null)
         {
@@ -28,6 +30,7 @@ public class MainActivity extends AppCompatActivity implements Settings.DialogCl
         }
 
     }
+
 
     //skal ut!
     /*public void getList() {
