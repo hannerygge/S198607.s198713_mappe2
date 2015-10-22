@@ -26,15 +26,16 @@ public class Edit extends Activity implements View.OnClickListener {
     int month;
     int year;
 
+
+
     ImageButton editTimeButton;
     Button editButton; // = (Button) findViewById(R.id.edit_button);
-
 
     public void onclicksomething(){
         editButton = (Button) findViewById(R.id.edit_button);
         editButton.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
-                editContact();
+                //editContact();
             }
         });
     }
@@ -47,6 +48,7 @@ public class Edit extends Activity implements View.OnClickListener {
 
         editTimeButton = (ImageButton) findViewById(R.id.edit_time_button);
         editName = (EditText) findViewById(R.id.edit_name);
+        //editName.setText();
         editNumber = (EditText) findViewById(R.id.edit_number);
         editDate = (EditText) findViewById(R.id.edit_birthday);
         editMessage = (EditText) findViewById(R.id.edit_message);
@@ -63,16 +65,19 @@ public class Edit extends Activity implements View.OnClickListener {
         editButton = (Button) findViewById(R.id.edit_button);
         editButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                editContact();
+               // editContact(); //må få inn den kontakten som skal editeres
             }
         });
     }
 
-    public void editContact(){
+    public void editContact(Contact contact){
+
+
         String n = editName.getText().toString();
         String bd = editDate.getText().toString();
         String t = editNumber.getText().toString();
         String m = editMessage.getText().toString();
+
 
         Contact tempContact = new Contact(n,bd,t,m);
 

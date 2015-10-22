@@ -54,7 +54,9 @@ public class MainActivity extends AppCompatActivity implements /*LoaderManager.L
         list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
                 Intent i = new Intent(MainActivity.this, Edit.class);
+                //i.putExtra()
                 startActivity(i);
 
             }
