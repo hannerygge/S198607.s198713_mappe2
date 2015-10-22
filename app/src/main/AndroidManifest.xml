@@ -79,6 +79,12 @@
             android:process=":remote"
             ></receiver>
 
+        <receiver android:name="com.example.hanne_000.s198607s198713_mappe2.BootBroadcast">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+            </intent-filter>
+        </receiver>
+
     </application>
 
 
