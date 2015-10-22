@@ -18,16 +18,24 @@ public class ContactCP extends ContentProvider {
     public static final String _ID = "_id";
     public int ID;
     public static final String TITTEL = "Title";
-    private static final String DB_NAVN = "Contacts.db";
+    private static final String DB_NAVN = "Contacts";
     private static final int DB_VERSJON = 1;
     private static final String TABLE = "Kontakter";
     public final static String PROVIDER = "com.example.hanne_000.s198607s198713_mappe2";
+    private static final int Contact = 1;
+    private static final int Contacts = 2;
 
     SQLiteDatabase db;
     DBHandler dbh = new DBHandler(getContext());
-    private static final UriMatcher uriMatcher = null;
+    private static final UriMatcher uriMatcher;
 
     public static final Uri CONTENT_URI = Uri.parse("content://" + PROVIDER + "/Contact");
+
+    static {
+        uriMatcher = new UriMatcher(UriMatcher.NO_MATCH);
+        uriMatcher.addURI(PROVIDER, "Contact", Contacts);
+        uriMatcher.addURI(PROVIDER, "Contact/#", Contact);
+    }
 
     @Override
     public int delete(Uri uri, String selection, String[] selectionArgs) {
@@ -53,6 +61,7 @@ public class ContactCP extends ContentProvider {
                 queryBuilder.appendWhere(dbh.KEY_ID + "=" + uri.getLastPathSegment());
                 break;
             case 2:
+                queryBuilder.appendWhere(dbh.KEY_ID + "=" + uri.getLastPathSegment());
                 break;
             default:
                 throw new IllegalArgumentException("Unknown URI");

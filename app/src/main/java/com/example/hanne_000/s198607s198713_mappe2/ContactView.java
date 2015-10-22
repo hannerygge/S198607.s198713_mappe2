@@ -48,7 +48,10 @@ public class ContactView extends Fragment implements LoaderManager.LoaderCallbac
         String[] uiBindFrom = {"Name"};
         int[] uiBindTo = {0};
 
-        mAdapter = new SimpleCursorAdapter(getActivity().getApplicationContext(), android.R.layout.simple_list_item_1, db.getAllContacts(), uiBindFrom, uiBindTo, 0);
+        Cursor query = db.getAllContacts();
+
+        mAdapter = new SimpleCursorAdapter(getActivity().getApplicationContext(), android.R.layout.simple_list_item_1, query, uiBindFrom, uiBindTo, 0);
+
 
         ListView l = (ListView)getActivity().findViewById(R.id.listview);
         l.setAdapter(mAdapter);
