@@ -124,10 +124,22 @@ public class DBHandler extends SQLiteOpenHelper {
         Cursor test = db.query(TABLE_CONTACTS, mProjection, mSelectionClause, mSelectionArgs, groupby, having, sortOrder);
         return test;
     }
+    public Cursor getBirthdayPeople(String Bday) {
+        db = this.getReadableDatabase();
+        String[] mProjection = {"rowid as _id", "Name", "Birthday", "Phone", "Message"};
+        String mSelectionClause = "Birthday = " + Bday;
+        String[] mSelectionArgs = null;
+        String groupby = null;
+        String having = null;
+        String sortOrder = "Name";
+        Cursor test = db.query(TABLE_CONTACTS, mProjection, mSelectionClause, mSelectionArgs, groupby, having, sortOrder);
+        return test;
+    }
+
     public Cursor getContact(int id){
         db = this.getReadableDatabase();
         String[] mProjection = {"rowid as _id", "Name", "Birthday", "Phone", "Message"};
-        String mSelectionClause = "_id = " + (id);
+        String mSelectionClause = "_id = " + id;
         String[] mSelectionArgs = null;
         String groupby = null;
         String having = null;

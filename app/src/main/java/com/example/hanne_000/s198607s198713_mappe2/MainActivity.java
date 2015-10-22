@@ -1,9 +1,12 @@
 package com.example.hanne_000.s198607s198713_mappe2;
 
+import android.app.AlarmManager;
 import android.app.DialogFragment;
 import android.app.ListActivity;
 import android.app.ListFragment;
 import android.app.LoaderManager;
+import android.app.PendingIntent;
+import android.content.Context;
 import android.content.CursorLoader;
 import android.content.Intent;
 import android.content.Loader;
@@ -64,6 +67,7 @@ public class MainActivity extends AppCompatActivity implements /*LoaderManager.L
 
             }
         });
+
 
         /*if(findViewById(R.id.fragment_container) != null)
         {
@@ -163,6 +167,19 @@ public class MainActivity extends AppCompatActivity implements /*LoaderManager.L
 
     }
 */
+
+    public void startService(View v){
+        Intent intent = new Intent();
+        intent.setAction("com.example.Service.mittbroadcast");
+        sendBroadcast(intent);
+    }
+    public void stoppService(View v){
+        Intent i = new Intent(this, SMS_Service.class);
+        PendingIntent pintent = PendingIntent.getService(this, 0 , i , 0);
+        AlarmManager alarm = (AlarmManager)getSystemService(Context.ALARM_SERVICE);
+        alarm.cancel(pintent);
+    }
+
     @Override
     public void onYesClick() {
         return;

@@ -6,8 +6,15 @@ import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.app.Service;
 import android.content.Intent;
+import android.database.Cursor;
 import android.os.IBinder;
+import android.telephony.SmsManager;
 import android.widget.Toast;
+
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 
 public class SMS_Service extends Service {
 
@@ -36,7 +43,30 @@ public class SMS_Service extends Service {
         noti.flags |= Notification.FLAG_AUTO_CANCEL;
         notificationManager.notify(0, noti);
 
+        DBHandler dbh = new DBHandler(getApplicationContext());
+
+        Calendar c = Calendar.getInstance();
+        SimpleDateFormat df = new SimpleDateFormat("dd-mm-yyyy");
+        String Today = df.format(c.getTime());
+
+        Cursor cur = dbh.getBirthdayPeople(Today);
+
+        if(cur.getCount() <= 1) {
+            cur.moveToFirst();
+            while(cur.moveToNext()){
+                String CursorNumber = cur.getString(cur.getColumnIndex("Phone"));
+                String CursorMessage = cur.getString(cur.getColumnIndex("Message"));
+                sendSMS(CursorNumber, CursorMessage);
+            }
+            Toast.makeText(getApplicationContext(), "Birthday messages has been sent!",
+                    Toast.LENGTH_SHORT).show();
+        }
+
         return super.onStartCommand(intent, flags, startId);
+    }
+    public void sendSMS(String number, String message){
+        SmsManager sms = SmsManager.getDefault();
+        sms.sendTextMessage(number, null, message, null, null);
     }
     /*@Override
     protected void onHandleIntent(Intent intent) {
