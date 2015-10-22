@@ -20,7 +20,7 @@ import java.util.Calendar;
 /**
  * Created by hanne_000 on 22.10.2015.
  */
-public class NewMessage extends AppCompatActivity implements View.OnClickListener, Settings.DialogClickListener{
+public class NewMessage extends AppCompatActivity implements View.OnClickListener{
 
     EditText etMessage;
     EditText et;
@@ -154,9 +154,9 @@ public class NewMessage extends AppCompatActivity implements View.OnClickListene
                 //startActivity(j);
                 startActivityForResult(l, 555);
                 */
+                Intent intent = new Intent(this, Settings.class);
+                startActivity(intent);
 
-                DialogFragment dialog = new Settings();
-                dialog.show(getFragmentManager(), "test9");
 
                 return true;
 
@@ -167,19 +167,4 @@ public class NewMessage extends AppCompatActivity implements View.OnClickListene
 
     }
 
-
-    @Override
-    public void onYesClick() {
-
-    }
-
-    @Override
-    public void onNoClick() {
-
-    }
-
-    @Override
-    public void onFinishClick() {
-
-    }
 }

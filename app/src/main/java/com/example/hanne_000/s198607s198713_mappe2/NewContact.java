@@ -21,7 +21,7 @@ import android.widget.Toast;
 
 import java.util.*;
 
-public class NewContact extends AppCompatActivity implements Settings.DialogClickListener, OnClickListener {
+public class NewContact extends AppCompatActivity implements OnClickListener {
 
 
     Button button;
@@ -167,31 +167,14 @@ public class NewContact extends AppCompatActivity implements Settings.DialogClic
                 startActivityForResult(l, 555);
                 */
 
-                DialogFragment dialog = new Settings();
-                dialog.show(getFragmentManager(), "test9");
-
+                Intent intent = new Intent(this, Settings.class);
+                startActivity(intent);
                 return true;
 
             default:
                 return super.onOptionsItemSelected(item);
         }
 
-
-    }
-
-    @Override
-    public void onYesClick() {
-        return;
-    }
-
-    @Override
-    public void onNoClick() {
-        return;
-    }
-
-    @Override
-    public void onFinishClick() {
-        return;
 
     }
 }

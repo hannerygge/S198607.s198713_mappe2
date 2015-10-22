@@ -22,7 +22,7 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 import android.support.v4.widget.SimpleCursorAdapter;
 
-public class MainActivity extends AppCompatActivity implements /*LoaderManager.LoaderCallbacks<Cursor>,*/ Settings.DialogClickListener {
+public class MainActivity extends AppCompatActivity /*implements LoaderManager.LoaderCallbacks<Cursor>,*/  {
     ListView list;
     //ContactCP cp;
     DBHandler db;
@@ -180,21 +180,6 @@ public class MainActivity extends AppCompatActivity implements /*LoaderManager.L
         alarm.cancel(pintent);
     }
 
-    @Override
-    public void onYesClick() {
-        return;
-    }
-
-    public void onFinishClick() {
-        return;
-    }
-
-    @Override
-    public void onNoClick() {
-        return;
-
-    }
-
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -239,9 +224,8 @@ public class MainActivity extends AppCompatActivity implements /*LoaderManager.L
                 //startActivity(j);
                 startActivityForResult(l, 555);
                 */
-
-                DialogFragment dialog = new Settings();
-                dialog.show(getFragmentManager(), "test9");
+                Intent intent = new Intent(this, Settings.class);
+                startActivity(intent);
 
                 return true;
 

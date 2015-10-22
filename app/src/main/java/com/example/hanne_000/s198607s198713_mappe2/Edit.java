@@ -23,21 +23,8 @@ import java.sql.SQLClientInfoException;
 
 
 //edit kontakter
-public class Edit extends AppCompatActivity implements View.OnClickListener, Settings.DialogClickListener{
-    @Override
-    public void onFinishClick() {
+public class Edit extends AppCompatActivity implements View.OnClickListener{
 
-    }
-
-    @Override
-    public void onYesClick() {
-
-    }
-
-    @Override
-    public void onNoClick() {
-
-    }
 //get user and show data
 
     EditText editName;
@@ -220,10 +207,8 @@ public class Edit extends AppCompatActivity implements View.OnClickListener, Set
                 //startActivity(j);
                 startActivityForResult(l, 555);
                 */
-
-                DialogFragment dialog = new Settings();
-                dialog.show(getFragmentManager(), "test9");
-
+                Intent intent = new Intent(this, Settings.class);
+                startActivity(intent);
                 return true;
 
             default:

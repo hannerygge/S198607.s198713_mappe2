@@ -34,6 +34,7 @@
     <string name="language">Engelsk</string>
     <string name="ikkeok">Tilbake</string>
 
-
+    <string name="on">På</string>
+    <string name="off">aV</string>
 
 </resources>
