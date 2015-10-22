@@ -15,7 +15,7 @@ import android.util.Log;
 
 public class ContactCP extends ContentProvider {
 
-    public static final String _ID = "_id";
+    public static final String _ID = "_ID";
     public int ID;
     public static final String TITTEL = "Title";
     private static final String DB_NAVN = "Contacts";

@@ -75,6 +75,9 @@
 
     <service android:name=".Service"/>
 
+        <receiver android:name=".AlarmReceiver"
+            android:process=":remote"
+            ></receiver>
 
     </application>
 

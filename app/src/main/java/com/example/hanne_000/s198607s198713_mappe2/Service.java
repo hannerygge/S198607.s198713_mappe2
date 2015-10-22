@@ -25,7 +25,8 @@ public class Service extends android.app.Service{
         //Toast.makeText(getApplicationContext(),"I MinService", Toast.LENGTH_SHORT).show();
         return super.onStartCommand(intent, flags, startId);
 
-        //Bundle
+       // Bundle bundle = intent.getExtras();
+
 
 
     }
