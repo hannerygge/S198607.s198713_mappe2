@@ -7,11 +7,13 @@ import android.content.CursorLoader;
 import android.content.Intent;
 import android.content.Loader;
 import android.database.Cursor;
+import android.net.Uri;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ListView;
-import android.widget.SimpleCursorAdapter;
+import android.support.v4.widget.SimpleCursorAdapter;
 
 public class MainActivity extends ListActivity implements LoaderManager.LoaderCallbacks<Cursor>, Settings.DialogClickListener {
     ListView list;
@@ -21,19 +23,22 @@ public class MainActivity extends ListActivity implements LoaderManager.LoaderCa
     SimpleCursorAdapter mAdapter;
 
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        list = (ListView) findViewById(R.id.listview);
+        list = getListView();
         db = new DBHandler(getApplicationContext());
         //cp = new ContactCP();
         contacts = db.getAllContacts();
+        if (contacts.getCount() < 1)  {throw new IndexOutOfBoundsException();}
 
         String[] fromColumns = {"Name"};
-        int[] toViews = {android.R.id.text1};
-        mAdapter = new SimpleCursorAdapter(getApplicationContext(), R.id.listview, contacts, fromColumns, toViews);
+        int[] toViews = {R.id.name_entry};
+
+        mAdapter = new SimpleCursorAdapter(getApplicationContext(), R.layout.listitem, contacts, fromColumns, toViews);
+
+        if(list == null) {throw new IndexOutOfBoundsException();}
         list.setAdapter(mAdapter);
         getLoaderManager().initLoader(0, null, this);
 
@@ -172,11 +177,40 @@ public class MainActivity extends ListActivity implements LoaderManager.LoaderCa
                 return super.onOptionsItemSelected(item);
         }
     }
-
+    /*
     @Override
     public Loader<Cursor> onCreateLoader(int id, Bundle args) {
         return new CursorLoader(this);
+    }*/
+
+    public Loader<Cursor> onCreateLoader(int loaderID, Bundle bundle)
+    {
+        String[] mProjection = {"rowid as _id", "Name"};
+        String PROVIDER = "com.example.hanne_000.s198607s198713_mappe2";
+        Uri CONTENT_URI = Uri.parse("content://" + PROVIDER + "/Contact");
+    /*
+     * Takes action based on the ID of the Loader that's being created
+     */
+        switch (loaderID) {
+            case 0:
+                // Returns a new CursorLoader
+                return new CursorLoader(
+                        getApplicationContext(),   // Parent activity context
+                        CONTENT_URI,        // Table to query
+                        mProjection,     // Projection to return
+                        null,            // No selection clause
+                        null,            // No selection arguments
+                        null             // Default sort order
+                );
+            default:
+                // An invalid id was passed in
+                return null;
+        }
     }
+
+
+
+
 
     @Override
     public void onLoadFinished(Loader<Cursor> loader, Cursor data) {

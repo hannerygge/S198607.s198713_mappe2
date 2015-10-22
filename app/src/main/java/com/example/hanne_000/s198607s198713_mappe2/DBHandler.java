@@ -30,7 +30,6 @@ public class DBHandler extends SQLiteOpenHelper {
 
     public DBHandler(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
-
     }
 
     @Override
@@ -115,7 +114,7 @@ public class DBHandler extends SQLiteOpenHelper {
 
     public Cursor getAllContacts() {
         db = this.getReadableDatabase();
-        String[] mProjection = {"Name"};
+        String[] mProjection = {"rowid as _id", "Name"};
         String mSelectionClause = null;
         String[] mSelectionArgs = null;
         String groupby = null;
