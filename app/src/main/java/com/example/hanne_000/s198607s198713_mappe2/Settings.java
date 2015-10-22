@@ -11,6 +11,8 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
 import android.widget.ToggleButton;
 
 import java.util.Locale;
@@ -20,6 +22,7 @@ import java.util.Locale;
  */
 public class Settings extends AppCompatActivity implements SettingsFragment.DialogClickListener{
 
+    Button languageButton;
     @Override
     public void onFinishClick() {
 
@@ -40,8 +43,21 @@ public class Settings extends AppCompatActivity implements SettingsFragment.Dial
         super.onCreate(savedInstanceState);
         setContentView(R.layout.settings);
 
+        onClickLanguageButton();
     }
 
+
+    public void onClickLanguageButton()
+    {
+        languageButton = (Button)findViewById(R.id.fragmentbutton);
+        languageButton.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                DialogFragment dialog = new SettingsFragment();
+                dialog.show(getFragmentManager(), "Avslutt");
+            }
+        });
+
+    }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu_main, menu);
