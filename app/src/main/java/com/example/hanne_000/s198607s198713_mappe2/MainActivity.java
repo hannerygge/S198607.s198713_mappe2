@@ -1,24 +1,44 @@
 package com.example.hanne_000.s198607s198713_mappe2;
 
 import android.app.DialogFragment;
+import android.app.ListActivity;
+import android.app.LoaderManager;
+import android.content.CursorLoader;
 import android.content.Intent;
+import android.content.Loader;
 import android.database.Cursor;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-public class MainActivity extends AppCompatActivity implements Settings.DialogClickListener {
-    ContactCP cp;
+import android.widget.ListView;
+import android.widget.SimpleCursorAdapter;
+
+public class MainActivity extends ListActivity implements LoaderManager.LoaderCallbacks<Cursor>, Settings.DialogClickListener {
+    ListView list;
+    //ContactCP cp;
     DBHandler db;
+    Cursor contacts;
+    SimpleCursorAdapter mAdapter;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        list = (ListView) findViewById(R.id.listview);
         db = new DBHandler(getApplicationContext());
-        cp = new ContactCP();
+        //cp = new ContactCP();
+        contacts = db.getAllContacts();
 
-        if(findViewById(R.id.fragment_container) != null)
+        String[] fromColumns = {"Name"};
+        int[] toViews = {android.R.id.text1};
+        mAdapter = new SimpleCursorAdapter(getApplicationContext(), R.layout.liste, contacts, fromColumns, toViews);
+        list.setAdapter(mAdapter);
+        getLoaderManager().initLoader(0, null, this);
+
+
+
+        /*if(findViewById(R.id.fragment_container) != null)
         {
             if(savedInstanceState != null)
                 return;
@@ -27,7 +47,7 @@ public class MainActivity extends AppCompatActivity implements Settings.DialogCl
             contactFragment.setArguments(getIntent().getExtras());
             getFragmentManager().beginTransaction().add(R.id.fragment_container, contactFragment).commit();
 
-        }
+        }*/
 
     }
 
@@ -150,5 +170,20 @@ public class MainActivity extends AppCompatActivity implements Settings.DialogCl
             default:
                 return super.onOptionsItemSelected(item);
         }
+    }
+
+    @Override
+    public Loader<Cursor> onCreateLoader(int id, Bundle args) {
+        return new CursorLoader(this);
+    }
+
+    @Override
+    public void onLoadFinished(Loader<Cursor> loader, Cursor data) {
+        mAdapter.swapCursor(data);
+    }
+
+    @Override
+    public void onLoaderReset(Loader<Cursor> loader) {
+        mAdapter.swapCursor(null);
     }
 }

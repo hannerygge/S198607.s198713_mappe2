@@ -113,7 +113,15 @@ public class DBHandler extends SQLiteOpenHelper {
         db.close();
     }
 
-
-
-
+    public Cursor getAllContacts() {
+        db = this.getReadableDatabase();
+        String[] mProjection = {"Name"};
+        String mSelectionClause = null;
+        String[] mSelectionArgs = null;
+        String groupby = null;
+        String having = null;
+        String sortOrder = "Name";
+        Cursor test = db.query(TABLE_CONTACTS, mProjection, mSelectionClause, mSelectionArgs, groupby, having, sortOrder);
+        return test;
+    }
 }
