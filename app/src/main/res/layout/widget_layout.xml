@@ -9,7 +9,7 @@
 
 
     <TextView android:id="@+id/widgettekst"
-        android:text="Widget"
+        android:text="Todays Birthdays"
         android:layout_height="wrap_content"
         android:layout_width="wrap_content"
         android:layout_gravity="center_horizontal|center"
@@ -17,5 +17,16 @@
         android:padding="10dip"
         style="@style/WhiteText">
     </TextView>
+
+    <TextView android:id="@+id/widgettekst2"
+        android:text="Todays Birthdays"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:layout_gravity="center_horizontal|center"
+        android:layout_marginTop="5dip"
+        android:padding="10dip"
+        style="@style/WhiteText">
+    </TextView>
+
 
 </LinearLayout>
