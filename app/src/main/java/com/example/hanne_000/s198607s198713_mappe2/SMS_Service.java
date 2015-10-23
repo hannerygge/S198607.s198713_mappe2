@@ -27,10 +27,10 @@ public class SMS_Service extends Service {
     }
     @Override
     public int onStartCommand(Intent intent, int flags, int startId){
-        Toast.makeText(getApplicationContext(), "I com.example.andre.service.MinService",
+        Toast.makeText(getApplicationContext(), "SMS_Service | OnStartCommand",
                 Toast.LENGTH_SHORT).show();
 
-        NotificationManager notificationManager = (NotificationManager)getSystemService(NOTIFICATION_SERVICE);
+        /*NotificationManager notificationManager = (NotificationManager)getSystemService(NOTIFICATION_SERVICE);
         Intent i = new Intent(this, Result.class);
         PendingIntent pIntent = PendingIntent.getActivity(this, 0, i, 0);
 
@@ -41,7 +41,7 @@ public class SMS_Service extends Service {
                 .setContentIntent(pIntent).build();
 
         noti.flags |= Notification.FLAG_AUTO_CANCEL;
-        notificationManager.notify(0, noti);
+        notificationManager.notify(0, noti);*/
 
         DBHandler dbh = new DBHandler(getApplicationContext());
         Cursor time = dbh.getStandardMessageAndTime();
@@ -52,23 +52,24 @@ public class SMS_Service extends Service {
 
         Toast.makeText(getApplicationContext(), "Within SMS_Service",
                 Toast.LENGTH_SHORT).show();
+        if(!(time.getCount() < 1)) {
+            if (now.equals(time.getString(time.getColumnIndex("Time")))) {
 
-         if(now.equals(time.getString(time.getColumnIndex("Time")))){
+                SimpleDateFormat df2 = new SimpleDateFormat("dd-mm-yyyy");
+                String Today = df2.format(c.getTime());
 
-            SimpleDateFormat df2 = new SimpleDateFormat("dd-mm-yyyy");
-            String Today = df2.format(c.getTime());
+                Cursor cur = dbh.getBirthdayPeople(Today);
 
-            Cursor cur = dbh.getBirthdayPeople(Today);
-
-            if (cur.getCount() <= 1) {
-                cur.moveToFirst();
-                while (cur.moveToNext()) {
-                    String CursorNumber = cur.getString(cur.getColumnIndex("Phone"));
-                    String CursorMessage = cur.getString(cur.getColumnIndex("Message"));
-                    //sendSMS(CursorNumber, CursorMessage);
+                if (cur.getCount() <= 1) {
+                    cur.moveToFirst();
+                    while (cur.moveToNext()) {
+                        String CursorNumber = cur.getString(cur.getColumnIndex("Phone"));
+                        String CursorMessage = cur.getString(cur.getColumnIndex("Message"));
+                        //sendSMS(CursorNumber, CursorMessage);
+                    }
+                    Toast.makeText(getApplicationContext(), "Birthday messages has been sent!",
+                            Toast.LENGTH_SHORT).show();
                 }
-                Toast.makeText(getApplicationContext(), "Birthday messages has been sent!",
-                        Toast.LENGTH_SHORT).show();
             }
         }
         return super.onStartCommand(intent, flags, startId);
