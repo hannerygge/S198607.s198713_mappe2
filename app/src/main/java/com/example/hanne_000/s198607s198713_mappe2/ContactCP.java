@@ -11,6 +11,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.database.sqlite.SQLiteQueryBuilder;
 import android.net.Uri;
+import android.support.v4.widget.SimpleCursorAdapter;
 import android.util.Log;
 
 public class ContactCP extends ContentProvider {
@@ -27,6 +28,8 @@ public class ContactCP extends ContentProvider {
 
     SQLiteDatabase db;
     DBHandler dbh;
+    SimpleCursorAdapter mAdapter;
+
     private static final UriMatcher uriMatcher;
 
     public static final Uri CONTENT_URI = Uri.parse("content://" + PROVIDER + "/Contact");
@@ -38,12 +41,7 @@ public class ContactCP extends ContentProvider {
     }
 
     public ContactCP() {
-        /*Context test = getContext();
-        if(test == null) {throw new IndexOutOfBoundsException();}
-        dbh = new DBHandler(test);
-        if(dbh == null) {throw new IndexOutOfBoundsException();}
-        db = dbh.getReadableDatabase();
-        if(db == null) {throw new IndexOutOfBoundsException();}*/
+        dbh = new DBHandler(getContext());
     }
 
     @Override
