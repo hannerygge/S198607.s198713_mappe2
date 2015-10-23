@@ -36,6 +36,11 @@
             </intent-filter>
         </activity>
 
+        <!--<receiver android:name= "Widget">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_CONFIGURE"/>
+            </intent-filter>
+        </receiver>-->
 
 
         <activity android:name=".Message"

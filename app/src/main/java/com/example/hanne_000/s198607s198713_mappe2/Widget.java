@@ -21,7 +21,7 @@ public class Widget extends AppWidgetProvider {
             Date date = new Date();
             java.text.DateFormat format = SimpleDateFormat.getTimeInstance(SimpleDateFormat.MEDIUM, Locale.getDefault());
             updateViews.setTextViewText(R.id.widgettekst2, "Klokka er: " + format.format(date));
-
+            Context tada = context;
             Calendar c = Calendar.getInstance();
             SimpleDateFormat df2 = new SimpleDateFormat("dd-mm-yyyy");
             String Today = df2.format(c.getTime());
@@ -32,7 +32,7 @@ public class Widget extends AppWidgetProvider {
             String groupby = null;
             String having = null;
             String sortOrder = null;
-            Cursor cur = context.getContentResolver().query(ContactCP.CONTENT_URI, mProjection, mSelectionClause, mSelectionArgs, sortOrder);
+            Cursor cur = tada.getContentResolver().query(ContactCP.CONTENT_URI, mProjection, mSelectionClause, mSelectionArgs, sortOrder);
             String output = "";
             if(null != cur)
             {
