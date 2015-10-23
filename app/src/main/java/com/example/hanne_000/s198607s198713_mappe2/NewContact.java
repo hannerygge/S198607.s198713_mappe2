@@ -24,7 +24,7 @@ import java.util.*;
 public class NewContact extends AppCompatActivity implements OnClickListener {
 
 
-    Button button;
+    ImageButton button;
     ImageButton dateButton;
     Calendar c;
     EditText date;
@@ -38,7 +38,7 @@ public class NewContact extends AppCompatActivity implements OnClickListener {
 
 
     public void onclicksomething(){
-        button = (Button) findViewById(R.id.newcontactbutton);
+        button = (ImageButton) findViewById(R.id.newcontactbutton);
         button.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
                 createContact();
