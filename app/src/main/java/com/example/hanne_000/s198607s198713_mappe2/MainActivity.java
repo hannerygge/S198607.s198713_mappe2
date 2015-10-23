@@ -38,6 +38,18 @@ public class MainActivity extends AppCompatActivity /*implements LoaderManager.L
         //list = getListView();
         list = (ListView)findViewById(android.R.id.list);
         db = new DBHandler(getApplicationContext());
+
+        Cursor cur = db.getStandardMessageAndTime(1);
+        Message test = new Message();
+        test.setTime("11:54 PM");
+        test.setMessage("Test");
+        test.setID(1);
+        if(cur.getCount() < 1){
+            db.addMessage(test);
+        }
+        db.editMessage(test);
+
+
         //cp = new ContactCP();
         contacts = db.getAllContacts();
         //if (contacts.getCount() < 1)  {throw new IndexOutOfBoundsException();}

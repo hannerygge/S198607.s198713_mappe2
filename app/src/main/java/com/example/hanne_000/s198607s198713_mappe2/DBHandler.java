@@ -7,7 +7,9 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.HashMap;
 
 /**
@@ -39,8 +41,8 @@ public class DBHandler extends SQLiteOpenHelper {
         db.execSQL(CREATE_TABLE);
         db.execSQL(CREATE_TABLE2);
 
-        Message defaultMessage = new Message("Happy Birthday! :D", "12:00");
-        addMessage(defaultMessage);
+
+
     }
 
     public void createContactDatabase(SQLiteDatabase db)
@@ -91,10 +93,10 @@ public class DBHandler extends SQLiteOpenHelper {
         db.insert(TABLE_MESSAGES, null, values);
         db.close();
     }
-    public Cursor getStandardMessageAndTime() {
+    public Cursor getStandardMessageAndTime(int id) {
         db = this.getReadableDatabase();
         String[] mProjection = {"rowid as _id", "Message", "Time"};
-        String mSelectionClause = null;
+        String mSelectionClause = "_id = " + id;
         String[] mSelectionArgs = null;
         String groupby = null;
         String having = null;
@@ -116,6 +118,19 @@ public class DBHandler extends SQLiteOpenHelper {
 
 
         int updated = db.update(TABLE_CONTACTS, values, KEY_ID + "= ?", new String[]{String.valueOf(contact.getId())});
+        db.close();
+        return updated;
+    }
+
+    public int editMessage(Message message)
+    {
+        db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put(KEY_ID, message.getID());
+        values.put(MESSAGE, message.getMessage());
+        values.put(TIME, message.getTime());
+
+        int updated = db.update(TABLE_MESSAGES, values, KEY_ID + "= ?", new String[]{String.valueOf(message.getID())});
         db.close();
         return updated;
     }
