@@ -41,7 +41,7 @@ public class MainActivity extends AppCompatActivity /*implements LoaderManager.L
 
         Cursor cur = db.getStandardMessageAndTime(1);
         Message test = new Message();
-        test.setTime("11:54 PM");
+        test.setTime("12:00 PM");
         test.setMessage("Test");
         test.setID(1);
         if(cur.getCount() < 1){

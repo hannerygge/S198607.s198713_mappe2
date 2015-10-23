@@ -20,6 +20,7 @@ public class SMS_Service extends Service {
 
     String message;
     String number;
+    String timeSent = "";
 
     @Override
     public IBinder onBind(Intent arg0){
@@ -50,10 +51,18 @@ public class SMS_Service extends Service {
         SimpleDateFormat df = new SimpleDateFormat("h:mm a");
         String now = df.format(c.getTime());
 
-        if(!(time.getCount() < 1)) {
+        Toast.makeText(getApplicationContext(), "time-object-count: " + time.getCount() + ", " + (!(now.equals(timeSent))),
+                Toast.LENGTH_SHORT).show();
+
+        if((!(time.getCount() < 1)) && !(now.equals(timeSent))) {
+
             if (now.equals(time.getString(time.getColumnIndex("Time")))) {
+
                 SimpleDateFormat df2 = new SimpleDateFormat("dd-mm-yyyy");
                 String Today = df2.format(c.getTime());
+
+                Toast.makeText(getApplicationContext(), "Now is the time!",
+                        Toast.LENGTH_SHORT).show();
 
                 Cursor cur = dbh.getBirthdayPeople(Today);
 
@@ -64,12 +73,16 @@ public class SMS_Service extends Service {
                         String CursorMessage = cur.getString(cur.getColumnIndex("Message"));
 
 
-
                         //sendSMS(CursorNumber, CursorMessage);
                     }
+                    //Create a notification instead?
                     Toast.makeText(getApplicationContext(), "Birthday messages has been sent!",
                             Toast.LENGTH_SHORT).show();
+                    timeSent = df.format(c.getTime());
+
                 }
+
+
             }
         }
         return super.onStartCommand(intent, flags, startId);

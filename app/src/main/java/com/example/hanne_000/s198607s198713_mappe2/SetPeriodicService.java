@@ -26,7 +26,7 @@ public class SetPeriodicService extends Service {
         Intent i = new Intent(this, SMS_Service.class);
         PendingIntent pintent = PendingIntent.getService(this, 0 , i , 0);
         AlarmManager alarm = (AlarmManager)getSystemService(Context.ALARM_SERVICE);
-        alarm.setRepeating(AlarmManager.RTC_WAKEUP, cal.getTimeInMillis(), 10 * 1000, pintent);
+        alarm.setRepeating(AlarmManager.RTC_WAKEUP, cal.getTimeInMillis(), 60 * 1000, pintent);
         return super.onStartCommand(intent, flags, startId);
     }
 }
