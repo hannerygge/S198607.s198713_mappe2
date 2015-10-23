@@ -193,7 +193,7 @@ public class Edit extends AppCompatActivity implements View.OnClickListener{
             case R.id.message:
                 Intent j = new Intent(this, NewMessage.class);
                 //startActivity(j);
-                startActivityForResult(j, 555);
+                startActivity(j);
                 return true;
 
            /* case R.id.calendar:

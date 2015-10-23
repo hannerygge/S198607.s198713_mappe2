@@ -13,9 +13,11 @@
 
     <EditText
         android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
         android:id="@+id/standardmessage"
-        style="@style/WhiteText"/>
+        android:padding="5dp"
+        android:layout_margin="5dp"
+        android:background="@drawable/border"/>
 
    <!-- <TimePicker
     style="@style/CustomStyle"    android:layout_width="wrap_content"
@@ -31,18 +33,30 @@
         android:text="@string/settime"
         style="@style/WhiteText"/>
 
-    <EditText
+
+    <LinearLayout
         android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="5dp"
+        android:layout_margin="5dp"
+        android:id="@+id/timelayout"
+        android:background="@drawable/border">
+
+    <EditText
+        android:layout_width="270dp"
         android:layout_height="wrap_content"
         android:id="@+id/time"
         android:editable="false"
-        style="@style/WhiteText"/>
+        />
 
     <ImageButton
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
         android:id="@+id/choosetime"
-        android:text="time"/>
+        android:text="time"
+        android:background="@drawable/clock"/>
+        </LinearLayout>
 
     <Button
         android:layout_width="wrap_content"
