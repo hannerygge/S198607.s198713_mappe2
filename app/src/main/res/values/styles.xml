@@ -7,19 +7,16 @@
     </style>
 
     <style name="CustomStyle">
-        <item name="android:background">#58C6E8</item>
+        <item name="android:background">#00BAF2</item>
     </style>
 
     <style name="WhiteText">
         <item name="android:textColor">#ffffff</item>
     </style>
 
-    <style name="PinkText">
-        <item name="android:textColor">#FB5597</item>
-    </style>
 
     <style name="Border">
-
+        <item name="android:textColor">#ffffff</item>
     </style>
 
 
