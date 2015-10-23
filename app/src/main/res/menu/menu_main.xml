@@ -4,7 +4,7 @@
   <!-- <item android:id="@+id/action_settings" android:title="@string/action_settings"
         android:orderInCategory="100" app:showAsAction="never" />-->
 
-    <item android:icon="@drawable/testing"
+    <item android:icon="@drawable/adduser"
         android:id="@+id/newcontact"
         android:orderInCategory="100"
         app:showAsAction="always"
@@ -12,7 +12,7 @@
 
     </item>
 
-    <item android:icon="@drawable/testing"
+    <item android:icon="@drawable/messageicon"
         android:id="@+id/message"
         android:orderInCategory="200"
         app:showAsAction="always"
@@ -28,7 +28,7 @@
 
     </item>-->
 
-    <item android:icon="@drawable/testing"
+    <item android:icon="@drawable/settingicon"
         android:id="@+id/settings"
         android:orderInCategory="400"
         app:showAsAction="always"

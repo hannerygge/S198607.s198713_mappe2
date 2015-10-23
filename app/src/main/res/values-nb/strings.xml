@@ -31,6 +31,8 @@
 
     <!-- -->
 
+    <string name="serviceonoff">Service av/på</string>
+
     <string name="delete">Slett</string>
     <string name="languagequestion">Velg språk: </string>
     <string name="changelanguage">Bytt språk!</string>

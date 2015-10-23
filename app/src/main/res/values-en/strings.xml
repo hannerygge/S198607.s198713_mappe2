@@ -40,6 +40,8 @@
     <string name="on">On</string>
     <string name="off">Off</string>
 
+    <string name="serviceonoff">Service off/on</string>
+
 
 
 </resources>

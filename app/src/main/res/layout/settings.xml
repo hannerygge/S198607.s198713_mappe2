@@ -4,14 +4,25 @@
     android:layout_height="match_parent"
     android:background="@drawable/background">
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/settingstext"
+        android:layout_gravity="center"
+        android:text="@string/serviceonoff"
+        style="@style/WhiteText"/>
+
     <Switch
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/togglebutton"
+        android:layout_gravity="center"
         android:textOn="@string/on"
         android:textOff="@string/off"/>
 
 <Button
+    android:layout_margin="50dp"
+    android:layout_gravity="center"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:id="@+id/fragmentbutton"

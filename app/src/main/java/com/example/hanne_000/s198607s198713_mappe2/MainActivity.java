@@ -36,6 +36,7 @@ public class MainActivity extends AppCompatActivity /*implements LoaderManager.L
         setContentView(R.layout.activity_main);
         //ListViewActivity lva = new ListViewActivity();
         //list = getListView();
+
         list = (ListView)findViewById(android.R.id.list);
         db = new DBHandler(getApplicationContext());
 
