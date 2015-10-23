@@ -82,6 +82,7 @@ public class NewContact extends AppCompatActivity implements OnClickListener {
         String t = number.getText().toString(); // 12345678;
         String m = message.getText().toString(); //"test";
 
+
         Contact tempContact = new Contact(n,bd,t,m);
 
         DBHandler db = new DBHandler(getApplicationContext());
@@ -91,16 +92,6 @@ public class NewContact extends AppCompatActivity implements OnClickListener {
                 Toast.LENGTH_SHORT).show();
 
 
-    }
-
-    public void datePickerOnClick(){
-        dateButton = (ImageButton) findViewById(R.id.datepickerbutton);
-        dateButton.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                DialogFragment dialog = new DatePickerFragment();
-                dialog.show(getFragmentManager(), "tekst");
-            }
-        });
     }
 
 
