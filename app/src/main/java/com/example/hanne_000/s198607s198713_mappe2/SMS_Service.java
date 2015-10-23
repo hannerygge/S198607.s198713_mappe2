@@ -27,7 +27,7 @@ public class SMS_Service extends Service {
     }
     @Override
     public int onStartCommand(Intent intent, int flags, int startId){
-        Toast.makeText(getApplicationContext(), "SMS_Service | OnStartCommand",
+        Toast.makeText(getApplicationContext(), "SMS_Service running",
                 Toast.LENGTH_SHORT).show();
 
         /*NotificationManager notificationManager = (NotificationManager)getSystemService(NOTIFICATION_SERVICE);
@@ -44,17 +44,14 @@ public class SMS_Service extends Service {
         notificationManager.notify(0, noti);*/
 
         DBHandler dbh = new DBHandler(getApplicationContext());
-        Cursor time = dbh.getStandardMessageAndTime();
+        Cursor time = dbh.getStandardMessageAndTime(1);
         time.moveToFirst();
         Calendar c = Calendar.getInstance();
         SimpleDateFormat df = new SimpleDateFormat("h:mm a");
         String now = df.format(c.getTime());
 
-        Toast.makeText(getApplicationContext(), "Within SMS_Service",
-                Toast.LENGTH_SHORT).show();
         if(!(time.getCount() < 1)) {
             if (now.equals(time.getString(time.getColumnIndex("Time")))) {
-
                 SimpleDateFormat df2 = new SimpleDateFormat("dd-mm-yyyy");
                 String Today = df2.format(c.getTime());
 
@@ -65,6 +62,9 @@ public class SMS_Service extends Service {
                     while (cur.moveToNext()) {
                         String CursorNumber = cur.getString(cur.getColumnIndex("Phone"));
                         String CursorMessage = cur.getString(cur.getColumnIndex("Message"));
+
+
+
                         //sendSMS(CursorNumber, CursorMessage);
                     }
                     Toast.makeText(getApplicationContext(), "Birthday messages has been sent!",
