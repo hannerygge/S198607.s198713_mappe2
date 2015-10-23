@@ -30,6 +30,8 @@
     <string name="changelanguage">Change Language!</string>
     <string name="language">Norwegian</string>
     <string name="ikkeok">Back</string>
+    <string name="appwidget_text">EXAMPLE</string>
+    <string name="add_widget">Add widget</string>
 
 
 

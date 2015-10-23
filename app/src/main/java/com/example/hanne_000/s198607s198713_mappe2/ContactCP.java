@@ -126,12 +126,9 @@ public class ContactCP extends ContentProvider {
         String mSelectionClause = null;
         String[] mSelectionArgs = null;
         String sortOrder = "Name";
-        Cursor test = query(CONTENT_URI, mProjection, mSelectionClause, mSelectionArgs, sortOrder);
-        if(null == test)
-        {
-            String test2 = "damn!";
-        }
-        return test;
+        Cursor output = query(CONTENT_URI, mProjection, mSelectionClause, mSelectionArgs, sortOrder);
+
+        return output;
     }
 }
 

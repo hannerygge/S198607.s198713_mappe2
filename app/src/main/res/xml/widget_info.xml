@@ -3,6 +3,8 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:initialLayout="@layout/widget_layout"
     android:minHeight="72dp"
-    android:minWidth="146dp"
-    android:updatePeriodMillis="1800000" >
+    android:minWidth="72dp"
+    android:updatePeriodMillis="1800000"
+    android:widgetCategory="home_screen"
+    android:configure="com.example.hanne_000.s198607s198713_mappe2.Widget">
 </appwidget-provider>

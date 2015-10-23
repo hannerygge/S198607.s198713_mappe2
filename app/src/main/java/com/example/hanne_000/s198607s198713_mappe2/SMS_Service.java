@@ -71,9 +71,9 @@ public class SMS_Service extends Service {
                     while (cur.moveToNext()) {
                         String CursorNumber = cur.getString(cur.getColumnIndex("Phone"));
                         String CursorMessage = cur.getString(cur.getColumnIndex("Message"));
-
-
-                        //sendSMS(CursorNumber, CursorMessage);
+                        if(CursorMessage == null || CursorMessage.equals(""))
+                            sendSMS(CursorNumber, time.getString(time.getColumnIndex("Message"))); //if the message is blank or null we use the standard message.
+                        sendSMS(CursorNumber, CursorMessage); //custom message
                     }
                     //Create a notification instead?
                     Toast.makeText(getApplicationContext(), "Birthday messages has been sent!",
