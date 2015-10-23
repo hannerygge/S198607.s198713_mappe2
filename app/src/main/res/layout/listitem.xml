@@ -11,11 +11,11 @@
         android:padding="5dp"
         android:layout_margin="5dp"
         android:textColor="#ffffff"
-        android:background="#00C6F2"
+        android:background="@drawable/border"
         android:textSize="15dp"
 
         />
-   <!--android:background="@drawable/border" <TextView
+   <!--" android:background="#00C6F2"<TextView
         android:id="@+id/number_entry"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
