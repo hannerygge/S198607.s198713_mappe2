@@ -19,7 +19,7 @@
         android:id="@+id/name"
         style="@style/WhiteText"
         android:padding="5dp"
-        android:layout_margin="5dp"
+        android:layout_margin="1dp"
         android:background="@drawable/border"/>
 <!-- -->
 
@@ -34,7 +34,7 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:padding="5dp"
-        android:layout_margin="5dp"
+        android:layout_margin="1dp"
         android:id="@+id/newcontactdatelayout"
         android:background="@drawable/border">
 
@@ -70,7 +70,7 @@
         android:id="@+id/number"
         android:inputType="phone"
         android:padding="5dp"
-        android:layout_margin="5dp"
+        android:layout_margin="1dp"
         android:background="@drawable/border"/> <!--Vet ikke om denne fungerer riktig!-->
 <!-- -->
     <TextView
@@ -84,7 +84,7 @@
         android:layout_height="50dp"
         android:id="@+id/message"
         android:padding="5dp"
-        android:layout_margin="5dp"
+        android:layout_margin="1dp"
         android:background="@drawable/border"/>
 <!--- -->
     <ImageButton

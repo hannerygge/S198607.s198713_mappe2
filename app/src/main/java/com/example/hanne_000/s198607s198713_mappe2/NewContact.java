@@ -108,6 +108,11 @@ public class NewContact extends AppCompatActivity implements OnClickListener {
         //toast
         Toast.makeText(getApplicationContext(), R.string.new_contact_toast,
                 Toast.LENGTH_SHORT).show();
+        name.setText("");
+        date.setText("");
+        number.setText("");
+        message.setText("");
+
 
 
     }
