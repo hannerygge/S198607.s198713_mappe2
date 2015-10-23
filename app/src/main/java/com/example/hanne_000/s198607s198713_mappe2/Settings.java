@@ -126,7 +126,7 @@ public class Settings extends AppCompatActivity implements SettingsFragment.Dial
                 startActivityForResult(l, 555);
                 */
 
-                Intent intent = new Intent(this, Settings.class);
+                Intent intent = new Intent(this, NewMessage.class);
                 startActivity(intent);
 
                 return true;
