@@ -12,8 +12,6 @@ public class AlarmReceiver extends android.content.BroadcastReceiver {
     public void onReceive(Context context, Intent intent) {
 
     Intent i = new Intent(context, SMS_Service.class);
-        i.putExtra("foo", "bar");
         context.startActivity(i);
-
     }
 }

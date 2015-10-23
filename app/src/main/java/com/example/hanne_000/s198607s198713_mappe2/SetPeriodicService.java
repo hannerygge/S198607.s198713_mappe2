@@ -7,6 +7,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.IBinder;
 import android.support.annotation.Nullable;
+import android.widget.Toast;
 
 import java.util.Calendar;
 
@@ -18,6 +19,8 @@ public class SetPeriodicService extends Service {
     }
     @Override
     public int onStartCommand(Intent intent, int flags, int startId){
+        Toast.makeText(getApplicationContext(), "Periodic Service -> onStartCommand",
+                Toast.LENGTH_SHORT).show();
         Calendar cal = Calendar.getInstance();
         Intent i = new Intent(this, SMS_Service.class);
         PendingIntent pintent = PendingIntent.getService(this, 0 , i , 0);

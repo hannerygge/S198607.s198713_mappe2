@@ -89,6 +89,17 @@ public class DBHandler extends SQLiteOpenHelper {
         db.insert(TABLE_MESSAGES, null, values);
         db.close();
     }
+    public Cursor getStandardMessageAndTime() {
+        db = this.getReadableDatabase();
+        String[] mProjection = {"rowid as _id", "Message", "Time"};
+        String mSelectionClause = null;
+        String[] mSelectionArgs = null;
+        String groupby = null;
+        String having = null;
+        String sortOrder = null;
+        Cursor output = db.query(TABLE_MESSAGES, mProjection, mSelectionClause, mSelectionArgs, groupby, having, sortOrder);
+        return output;
+    }
 
 
     public int editContact(Contact contact)
@@ -121,8 +132,8 @@ public class DBHandler extends SQLiteOpenHelper {
         String groupby = null;
         String having = null;
         String sortOrder = "Name";
-        Cursor test = db.query(TABLE_CONTACTS, mProjection, mSelectionClause, mSelectionArgs, groupby, having, sortOrder);
-        return test;
+        Cursor output = db.query(TABLE_CONTACTS, mProjection, mSelectionClause, mSelectionArgs, groupby, having, sortOrder);
+        return output;
     }
     public Cursor getBirthdayPeople(String Bday) {
         db = this.getReadableDatabase();
@@ -132,8 +143,8 @@ public class DBHandler extends SQLiteOpenHelper {
         String groupby = null;
         String having = null;
         String sortOrder = "Name";
-        Cursor test = db.query(TABLE_CONTACTS, mProjection, mSelectionClause, mSelectionArgs, groupby, having, sortOrder);
-        return test;
+        Cursor output = db.query(TABLE_CONTACTS, mProjection, mSelectionClause, mSelectionArgs, groupby, having, sortOrder);
+        return output;
     }
 
     public Cursor getContact(int id){
@@ -144,8 +155,8 @@ public class DBHandler extends SQLiteOpenHelper {
         String groupby = null;
         String having = null;
         String sortOrder = "Name";
-        Cursor test = db.query(TABLE_CONTACTS, mProjection, mSelectionClause, mSelectionArgs, groupby, having, sortOrder);
-        return test;
+        Cursor output = db.query(TABLE_CONTACTS, mProjection, mSelectionClause, mSelectionArgs, groupby, having, sortOrder);
+        return output;
 
 
 

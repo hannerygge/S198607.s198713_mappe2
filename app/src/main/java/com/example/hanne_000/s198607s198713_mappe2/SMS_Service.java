@@ -44,24 +44,33 @@ public class SMS_Service extends Service {
         notificationManager.notify(0, noti);
 
         DBHandler dbh = new DBHandler(getApplicationContext());
-
+        Cursor time = dbh.getStandardMessageAndTime();
+        time.moveToFirst();
         Calendar c = Calendar.getInstance();
-        SimpleDateFormat df = new SimpleDateFormat("dd-mm-yyyy");
-        String Today = df.format(c.getTime());
+        SimpleDateFormat df = new SimpleDateFormat("h:mm a");
+        String now = df.format(c.getTime());
 
-        Cursor cur = dbh.getBirthdayPeople(Today);
+        Toast.makeText(getApplicationContext(), "Within SMS_Service",
+                Toast.LENGTH_SHORT).show();
 
-        if(cur.getCount() <= 1) {
-            cur.moveToFirst();
-            while(cur.moveToNext()){
-                String CursorNumber = cur.getString(cur.getColumnIndex("Phone"));
-                String CursorMessage = cur.getString(cur.getColumnIndex("Message"));
-                sendSMS(CursorNumber, CursorMessage);
+         if(now.equals(time.getString(time.getColumnIndex("Time")))){
+
+            SimpleDateFormat df2 = new SimpleDateFormat("dd-mm-yyyy");
+            String Today = df2.format(c.getTime());
+
+            Cursor cur = dbh.getBirthdayPeople(Today);
+
+            if (cur.getCount() <= 1) {
+                cur.moveToFirst();
+                while (cur.moveToNext()) {
+                    String CursorNumber = cur.getString(cur.getColumnIndex("Phone"));
+                    String CursorMessage = cur.getString(cur.getColumnIndex("Message"));
+                    //sendSMS(CursorNumber, CursorMessage);
+                }
+                Toast.makeText(getApplicationContext(), "Birthday messages has been sent!",
+                        Toast.LENGTH_SHORT).show();
             }
-            Toast.makeText(getApplicationContext(), "Birthday messages has been sent!",
-                    Toast.LENGTH_SHORT).show();
         }
-
         return super.onStartCommand(intent, flags, startId);
     }
     public void sendSMS(String number, String message){

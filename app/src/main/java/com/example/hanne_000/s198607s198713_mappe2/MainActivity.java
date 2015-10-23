@@ -168,17 +168,7 @@ public class MainActivity extends AppCompatActivity /*implements LoaderManager.L
     }
 */
 
-    public void startService(View v){
-        Intent intent = new Intent();
-        intent.setAction("com.example.Service.mittbroadcast");
-        sendBroadcast(intent);
-    }
-    public void stoppService(View v){
-        Intent i = new Intent(this, SMS_Service.class);
-        PendingIntent pintent = PendingIntent.getService(this, 0 , i , 0);
-        AlarmManager alarm = (AlarmManager)getSystemService(Context.ALARM_SERVICE);
-        alarm.cancel(pintent);
-    }
+
 
 
     @Override
