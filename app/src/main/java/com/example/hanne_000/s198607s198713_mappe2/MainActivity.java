@@ -34,14 +34,13 @@ public class MainActivity extends AppCompatActivity /*implements LoaderManager.L
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
         //ListViewActivity lva = new ListViewActivity();
         //list = getListView();
         list = (ListView)findViewById(android.R.id.list);
         db = new DBHandler(getApplicationContext());
         //cp = new ContactCP();
         contacts = db.getAllContacts();
-        if (contacts.getCount() < 1)  {throw new IndexOutOfBoundsException();}
+        //if (contacts.getCount() < 1)  {throw new IndexOutOfBoundsException();}
 
         String[] fromColumns = {"Name"};
         int[] toViews = new int[] {R.id.name_entry};

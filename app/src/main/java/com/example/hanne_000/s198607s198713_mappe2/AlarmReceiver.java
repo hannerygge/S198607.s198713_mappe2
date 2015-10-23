@@ -12,7 +12,6 @@ public class AlarmReceiver extends android.content.BroadcastReceiver {
     public void onReceive(Context context, Intent intent) {
 
     Intent i = new Intent(context, SetPeriodicService.class);
-        i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         context.startService(i);
     }
 }

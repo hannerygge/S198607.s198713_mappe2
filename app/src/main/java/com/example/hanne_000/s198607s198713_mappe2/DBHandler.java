@@ -34,10 +34,13 @@ public class DBHandler extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        createContactDatabase(db);
-        createMessageDatabase(db);
+        String CREATE_TABLE = "CREATE TABLE " + TABLE_CONTACTS + "(" + KEY_ID + " INTEGER PRIMARY KEY," + NAME + " TEXT,"  + BIRTHDAY + " TEXT,"+ PHONENUMBER + " TEXT," + MESSAGE + " TEXT"  + ")";
+        String CREATE_TABLE2 = "CREATE TABLE " + TABLE_MESSAGES + "(" + KEY_ID + " INTEGER PRIMARY KEY," + STANDARDMESSAGE + " TEXT,"  + TIME + " TEXT" + ")";
+        db.execSQL(CREATE_TABLE);
+        db.execSQL(CREATE_TABLE2);
 
-
+        Message defaultMessage = new Message("Happy Birthday! :D", "12:00");
+        addMessage(defaultMessage);
     }
 
     public void createContactDatabase(SQLiteDatabase db)
@@ -48,7 +51,6 @@ public class DBHandler extends SQLiteOpenHelper {
     }
 
     public void createMessageDatabase(SQLiteDatabase db){
-
         String CREATE_TABLE = "CREATE TABLE " + TABLE_MESSAGES + "(" + KEY_ID + " INTEGER PRIMARY KEY," + STANDARDMESSAGE + " TEXT,"  + TIME + " TEXT" + ")";
         Log.d("SQL", CREATE_TABLE);
         db.execSQL(CREATE_TABLE);
