@@ -13,6 +13,5 @@ public class BootBroadcast extends WakefulBroadcastReceiver {
     public void onReceive(Context context, Intent intent) {
         Intent i = new Intent(context, SMS_Service.class);
         context.startActivity(i);
-
     }
 }

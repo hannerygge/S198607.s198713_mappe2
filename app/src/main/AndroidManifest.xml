@@ -82,19 +82,23 @@
                 android:resource="@xml/widget_info" />
         </receiver>
 
-    <service android:name=".SMS_Service"/>
+    <service android:name="SMS_Service">
+    </service>
+
+    <service android:name="SetPeriodicService">
+    </service>
 
         <!--<service android:name=".SetPeriodicService">
         </service>-->
-        <receiver android:name=".AlarmReceiver">
+        <receiver android:name="AlarmReceiver">
             <intent-filter>
                 <action
                     android:name="com.example.hanne_000.s198607s198713_mappe2.CustomBroadcast">
                 </action>
             </intent-filter>
         </receiver>
-
-      <!--  <receiver android:name=".AlarmReceiver"
+<!--
+        <receiver android:name=".AlarmReceiver"
             android:process=":remote">
 
         </receiver>-->
