@@ -30,14 +30,24 @@ public class Settings extends AppCompatActivity implements SettingsFragment.Dial
     Button languageButton;
     Switch toggle;
 
+    public void restart(){
+        Intent i = getIntent();
+        finish();
+        startActivity(i);
+    }
+
 
     @Override
     public void onFinishClick() {
+        restart();
+        return;
+
 
     }
 
     @Override
     public void onYesClick() {
+        return;
 
     }
 
