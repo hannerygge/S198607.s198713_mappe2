@@ -94,10 +94,10 @@
             </intent-filter>
         </receiver>
 
-        <receiver android:name=".AlarmReceiver"
+      <!--  <receiver android:name=".AlarmReceiver"
             android:process=":remote">
 
-        </receiver>
+        </receiver>-->
 
         <receiver android:name="com.example.hanne_000.s198607s198713_mappe2.BootBroadcast">
             <intent-filter>

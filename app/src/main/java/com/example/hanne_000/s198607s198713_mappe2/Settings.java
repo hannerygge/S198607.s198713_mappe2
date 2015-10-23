@@ -17,6 +17,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CompoundButton;
+import android.widget.Switch;
 import android.widget.ToggleButton;
 
 import java.util.Locale;
@@ -27,7 +28,7 @@ import java.util.Locale;
 public class Settings extends AppCompatActivity implements SettingsFragment.DialogClickListener{
 
     Button languageButton;
-    ToggleButton toggle;
+    Switch toggle;
 
 
     @Override
@@ -62,13 +63,13 @@ public class Settings extends AppCompatActivity implements SettingsFragment.Dial
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.settings);
-        toggle = (ToggleButton) findViewById(R.id.togglebutton);
+        toggle = (Switch) findViewById(R.id.togglebutton);
         toggle.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if(isChecked){
+                if (isChecked) {
                     startService();
-                }else{
+                } else {
                     stoppService();
                 }
             }
