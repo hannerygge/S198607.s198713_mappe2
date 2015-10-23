@@ -21,6 +21,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 import android.support.v4.widget.SimpleCursorAdapter;
+import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity /*implements LoaderManager.LoaderCallbacks<Cursor>,*/  {
     ListView list;
@@ -59,6 +60,13 @@ public class MainActivity extends AppCompatActivity /*implements LoaderManager.L
         int[] toViews = new int[] {R.id.name_entry};
         contacts.moveToFirst();
         mAdapter = new SimpleCursorAdapter(getApplicationContext(), R.layout.listitem, contacts, fromColumns, toViews, 0);
+        contacts = db.getAllContacts();
+        TextView empty = (TextView)findViewById(R.id.emptywarning);
+        if (contacts.getCount() < 1)  {
+            empty.setText("The list is empty");
+
+        }
+        empty.setText("");
 
 
 
