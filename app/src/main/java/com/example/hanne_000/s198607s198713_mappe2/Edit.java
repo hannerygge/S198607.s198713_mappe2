@@ -141,7 +141,7 @@ public class Edit extends AppCompatActivity implements View.OnClickListener{
 
         dbh.deleteContact(contact);
 
-        Toast.makeText(getApplicationContext(), R.string.new_contact_toast,
+        Toast.makeText(getApplicationContext(), R.string.edit_contact_toast,
                 Toast.LENGTH_SHORT).show();
     }
 

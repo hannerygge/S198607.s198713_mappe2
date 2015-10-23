@@ -64,7 +64,7 @@ public class NewMessage extends AppCompatActivity implements View.OnClickListene
         DBHandler db = new DBHandler(getApplicationContext());
         db.editMessage(melding);
         //toast
-        Toast.makeText(getApplicationContext(), "Standardmessage and time updated",
+        Toast.makeText(getApplicationContext(), R.string.edit_message_toast,
                 Toast.LENGTH_SHORT).show();
     }
 
