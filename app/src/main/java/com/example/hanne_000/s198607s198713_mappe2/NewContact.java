@@ -83,6 +83,24 @@ public class NewContact extends AppCompatActivity implements OnClickListener {
         String m = message.getText().toString(); //"test";
 
 
+        if(!t.matches("[0-9]{8,}")) {
+            number.setError(getString(R.string.phone_error_message));
+            return;
+        }
+
+        //vi tillater nicknames så du kan ha symboler og tall, den kan bare ikke være tom
+        if(n.isEmpty()){
+            name.setError(getString(R.string.name_error_message));
+            return;
+
+        }
+
+        if(bd.isEmpty()){
+            date.setError(getString(R.string.date_error_message));
+            return;
+        }
+
+
         Contact tempContact = new Contact(n,bd,t,m);
 
         DBHandler db = new DBHandler(getApplicationContext());

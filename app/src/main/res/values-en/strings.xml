@@ -42,6 +42,11 @@
 
     <string name="serviceonoff">Service off/on</string>
 
+    <string name="phone_error_message">Phone number can only be 8 digits</string>
+    <string name="name_error_message">Name is required</string>
+    <string name="date_error_message">Date is required</string>
+    <string name="message_error_message">Message is required</string>
+    <string name="time_error_message">Time is required</string>
 
 
 </resources>

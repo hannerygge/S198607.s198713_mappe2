@@ -58,6 +58,8 @@ public class NewMessage extends AppCompatActivity implements View.OnClickListene
         String m = etMessage.getText().toString(); // get melding;
         String t = et.getText().toString(); //get tidspunkt
 
+
+
         Message melding = new Message( m,t);
         melding.setID(1);
 

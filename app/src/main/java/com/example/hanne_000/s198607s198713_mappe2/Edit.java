@@ -117,6 +117,24 @@ public class Edit extends AppCompatActivity implements View.OnClickListener{
         String t = editNumber.getText().toString();
         String m= editMessage.getText().toString();
 
+
+        if(!t.matches("[0-9]{8,}")) {
+            editNumber.setError(getString(R.string.phone_error_message));
+            return;
+        }
+
+        //vi tillater nicknames så du kan ha symboler og tall, den kan bare ikke være tom
+        if(n.isEmpty()){
+            editName.setError(getString(R.string.name_error_message));
+            return;
+
+        }
+
+        if(b.isEmpty()){
+            editDate.setError(getString(R.string.date_error_message));
+            return;
+        }
+
         Contact contact = new Contact(n,b,t,m);
         contact.setID(id);
         db.editContact(contact);
