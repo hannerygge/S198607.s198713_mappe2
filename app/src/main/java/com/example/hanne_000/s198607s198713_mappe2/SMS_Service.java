@@ -28,8 +28,8 @@ public class SMS_Service extends Service {
     }
     @Override
     public int onStartCommand(Intent intent, int flags, int startId){
-        Toast.makeText(getApplicationContext(), "SMS_Service running",
-                Toast.LENGTH_SHORT).show();
+       // Toast.makeText(getApplicationContext(), "SMS_Service running",
+           //     Toast.LENGTH_SHORT).show();
 
         /*NotificationManager notificationManager = (NotificationManager)getSystemService(NOTIFICATION_SERVICE);
         Intent i = new Intent(this, Result.class);
@@ -51,8 +51,8 @@ public class SMS_Service extends Service {
         SimpleDateFormat df = new SimpleDateFormat("h:mm a");
         String now = df.format(c.getTime());
 
-        Toast.makeText(getApplicationContext(), "time-object-count: " + time.getCount() + ", " + (!(now.equals(timeSent))),
-                Toast.LENGTH_SHORT).show();
+        //Toast.makeText(getApplicationContext(), "time-object-count: " + time.getCount() + ", " + (!(now.equals(timeSent))),
+          //      Toast.LENGTH_SHORT).show();
 
         if((!(time.getCount() < 1)) && !(now.equals(timeSent))) {
 
@@ -61,8 +61,8 @@ public class SMS_Service extends Service {
                 SimpleDateFormat df2 = new SimpleDateFormat("dd-mm-yyyy");
                 String Today = df2.format(c.getTime());
 
-                Toast.makeText(getApplicationContext(), "Now is the time!",
-                        Toast.LENGTH_SHORT).show();
+              //  Toast.makeText(getApplicationContext(), "Now is the time!",
+                //        Toast.LENGTH_SHORT).show();
 
                 Cursor cur = dbh.getBirthdayPeople(Today);
 
