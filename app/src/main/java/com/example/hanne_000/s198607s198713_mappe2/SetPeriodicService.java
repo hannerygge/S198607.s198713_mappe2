@@ -19,8 +19,6 @@ public class SetPeriodicService extends Service {
     }
     @Override
     public int onStartCommand(Intent intent, int flags, int startId){
-        Toast.makeText(getApplicationContext(), "Periodic Service -> onStartCommand",
-                Toast.LENGTH_SHORT).show();
 
         Calendar cal = Calendar.getInstance();
         Intent i = new Intent(this, SMS_Service.class);

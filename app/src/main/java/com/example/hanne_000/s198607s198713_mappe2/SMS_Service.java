@@ -32,7 +32,6 @@ public class SMS_Service extends Service {
                 Toast.LENGTH_SHORT).show();
 
         /*NotificationManager notificationManager = (NotificationManager)getSystemService(NOTIFICATION_SERVICE);
-        Intent i = new Intent(this, Result.class);
         PendingIntent pIntent = PendingIntent.getActivity(this, 0, i, 0);
 
         Notification noti = new Notification.Builder(this)

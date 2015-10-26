@@ -26,8 +26,8 @@ public class ContactCP extends ContentProvider {
     private static final int Contact = 1;
     private static final int Contacts = 2;
 
-    SQLiteDatabase db;
-    DBHandler dbh;
+    DBHandler dbh = new DBHandler(getContext());
+    SQLiteDatabase db = dbh.getWritableDatabase();
     SimpleCursorAdapter mAdapter;
 
     private static final UriMatcher uriMatcher;
@@ -61,11 +61,15 @@ public class ContactCP extends ContentProvider {
         Cursor cur = null;
         if(uriMatcher.match(uri) == Contact)
         {
+            dbh = new DBHandler(getContext());
+            db = dbh.getReadableDatabase();
             if(db == null) {throw new IndexOutOfBoundsException();}
             cur = this.db.query(TABLE, projection, _ID + " = " + uri.getPathSegments().get(1), selectionArgs, null, null, sortOrder);
         }
         else
         {
+            dbh = new DBHandler(getContext());
+            db = dbh.getWritableDatabase();
             if(db == null) {throw new IndexOutOfBoundsException();}
             cur = this.db.query(TABLE, null, null, null, null, null, null, null);
         }

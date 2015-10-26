@@ -16,14 +16,7 @@
         android:theme="@style/AppTheme"
         android:logo="@drawable/cakeicon">
 
-        <provider
-            android:name="com.example.hanne_000.s198607s198713_mappe2.ContactCP"
-            android:authorities="com.example.anne_000.s198607s198713_mappe2"
-            android:enabled="true"
-            android:exported="true"
-            android:readPermission="com.example.hanne_000.s198607s198713_mappe2.permission"
-            android:writePermission="com.example.hanne_000.s198607s198713_mappe2.permission">
-        </provider>
+
 
         <activity
             android:name=".MainActivity"
@@ -68,18 +61,9 @@
 
         </activity>
 
-        <activity android:name=".ContactList"
-            android:parentActivityName=".MainActivity">
-
-        </activity>
-
         <activity android:name=".Settings"
             android:parentActivityName=".MainActivity">
 
-        </activity>
-
-        <activity
-            android:name=".Result">
         </activity>
 
         <receiver android:name="Widget">
@@ -117,6 +101,15 @@
                 <action android:name="android.intent.action.BOOT_COMPLETED"/>
             </intent-filter>
         </receiver>
+
+        <provider
+            android:name="com.example.hanne_000.s198607s198713_mappe2.ContactCP"
+            android:authorities="com.example.anne_000.s198607s198713_mappe2"
+            android:enabled="true"
+            android:exported="true"
+            android:readPermission="com.example.hanne_000.s198607s198713_mappe2.permission"
+            android:writePermission="com.example.hanne_000.s198607s198713_mappe2.permission">
+        </provider>
 
     </application>
 

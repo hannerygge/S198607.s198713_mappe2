@@ -38,7 +38,7 @@ public class MainActivity extends AppCompatActivity /*implements LoaderManager.L
         //ListViewActivity lva = new ListViewActivity();
         //list = getListView();
 
-        list = (ListView)findViewById(android.R.id.list);
+        list = (ListView) findViewById(android.R.id.list);
         db = new DBHandler(getApplicationContext());
 
         Cursor cur = db.getStandardMessageAndTime(1);
@@ -46,7 +46,7 @@ public class MainActivity extends AppCompatActivity /*implements LoaderManager.L
         test.setTime("12:00 PM");
         test.setMessage("Test");
         test.setID(1);
-        if(cur.getCount() < 1){
+        if (cur.getCount() < 1) {
             db.addMessage(test);
         }
         db.editMessage(test);
@@ -57,20 +57,21 @@ public class MainActivity extends AppCompatActivity /*implements LoaderManager.L
         //if (contacts.getCount() < 1)  {throw new IndexOutOfBoundsException();}
 
         String[] fromColumns = {"Name"};
-        int[] toViews = new int[] {R.id.name_entry};
+        int[] toViews = new int[]{R.id.name_entry};
         contacts.moveToFirst();
         mAdapter = new SimpleCursorAdapter(getApplicationContext(), R.layout.listitem, contacts, fromColumns, toViews, 0);
         contacts = db.getAllContacts();
-        TextView empty = (TextView)findViewById(R.id.emptywarning);
-        if (contacts.getCount() < 1)  {
+        TextView empty = (TextView) findViewById(R.id.emptywarning);
+        if (contacts.getCount() < 1) {
             empty.setText("The list is empty");
 
         }
         empty.setText("");
 
 
-
-        if(list == null) {throw new IndexOutOfBoundsException();}
+        if (list == null) {
+            throw new IndexOutOfBoundsException();
+        }
         list.setAdapter(mAdapter);
         //getLoaderManager().initLoader(0, null, this);
 
@@ -82,7 +83,7 @@ public class MainActivity extends AppCompatActivity /*implements LoaderManager.L
                 Intent i = new Intent(view.getContext(), Edit.class);
 
 
-                i.putExtra("id", (int)id);
+                i.putExtra("id", (int) id);
                 startActivity(i);
 
             }
@@ -91,14 +92,7 @@ public class MainActivity extends AppCompatActivity /*implements LoaderManager.L
 
         /*if(findViewById(R.id.fragment_container) != null)
         {
-            if(savedInstanceState != null)
-                return;
 
-            ContactView contactFragment = new ContactView();
-            contactFragment.setArguments(getIntent().getExtras());
-            getFragmentManager().beginTransaction().add(R.id.fragment_container, contactFragment).commit();
-
-        }*/
 
     }
 
@@ -187,6 +181,7 @@ public class MainActivity extends AppCompatActivity /*implements LoaderManager.L
 
     }
 */
+    }
 
 
 

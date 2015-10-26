@@ -8,6 +8,9 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.util.Log;
 import android.widget.RemoteViews;
+import android.widget.TextView;
+
+import org.w3c.dom.Text;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -22,6 +25,7 @@ public class Widget extends AppWidgetProvider {
             java.text.DateFormat format = SimpleDateFormat.getTimeInstance(SimpleDateFormat.MEDIUM, Locale.getDefault());
             updateViews.setTextViewText(R.id.widgettekst2, "Klokka er: " + format.format(date));
             Context tada = context;
+            ContactCP cp = new ContactCP();
             Calendar c = Calendar.getInstance();
             SimpleDateFormat df2 = new SimpleDateFormat("dd-mm-yyyy");
             String Today = df2.format(c.getTime());
@@ -32,7 +36,7 @@ public class Widget extends AppWidgetProvider {
             String groupby = null;
             String having = null;
             String sortOrder = null;
-            Cursor cur = tada.getContentResolver().query(ContactCP.CONTENT_URI, mProjection, mSelectionClause, mSelectionArgs, sortOrder);
+            Cursor cur = cp.query(ContactCP.CONTENT_URI, mProjection, mSelectionClause, mSelectionArgs, sortOrder);
             String output = "";
             if(null != cur)
             {
@@ -42,9 +46,6 @@ public class Widget extends AppWidgetProvider {
                     }
                 }
             }
-
-
-
             Intent clickIntent = new Intent(context, Widget.class);
             clickIntent.setAction(AppWidgetManager.ACTION_APPWIDGET_UPDATE);
             clickIntent.putExtra(AppWidgetManager.EXTRA_APPWIDGET_IDS, appWidgetIds);
