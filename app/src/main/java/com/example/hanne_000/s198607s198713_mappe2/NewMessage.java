@@ -28,12 +28,12 @@ public class NewMessage extends AppCompatActivity implements View.OnClickListene
     int hour;
     int minute;
     ImageButton timeButton;
-    Button saveButton;
+    ImageButton saveButton;
 
 
 
     public void updateOnClick(){
-        saveButton = (Button) findViewById(R.id.savestandardsessage);
+        saveButton = (ImageButton) findViewById(R.id.savestandardsessage);
         saveButton.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
                 createMessage();
