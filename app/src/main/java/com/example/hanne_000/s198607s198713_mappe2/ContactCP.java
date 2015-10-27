@@ -26,9 +26,11 @@ public class ContactCP extends ContentProvider {
     private static final int Contact = 1;
     private static final int Contacts = 2;
 
-    DBHandler dbh = new DBHandler(getContext());
-    SQLiteDatabase db = dbh.getWritableDatabase();
+    DBHandler dbh;// = new DBHandler(getContext());
+    SQLiteDatabase db;// = dbh.getWritableDatabase();
     SimpleCursorAdapter mAdapter;
+
+
 
     private static final UriMatcher uriMatcher;
 
@@ -41,8 +43,9 @@ public class ContactCP extends ContentProvider {
     }
 
     public ContactCP() {
-        dbh = new DBHandler(getContext());
+
     }
+
 
     @Override
     public int delete(Uri uri, String selection, String[] selectionArgs) {

@@ -23,7 +23,7 @@ public class Widget extends AppWidgetProvider {
             RemoteViews updateViews = new RemoteViews(context.getApplicationContext().getPackageName(), R.layout.widget_layout);
             Date date = new Date();
             java.text.DateFormat format = SimpleDateFormat.getTimeInstance(SimpleDateFormat.MEDIUM, Locale.getDefault());
-            updateViews.setTextViewText(R.id.widgettekst2, "Klokka er: " + format.format(date));
+            updateViews.setTextViewText(R.id.widgettekst, "Dagens Bursdagsbarn");
             Context tada = context;
             ContactCP cp = new ContactCP();
             Calendar c = Calendar.getInstance();
@@ -46,6 +46,9 @@ public class Widget extends AppWidgetProvider {
                     }
                 }
             }
+
+            updateViews.setTextViewText(R.id.widgettekst2,"" + output);
+
             Intent clickIntent = new Intent(context, Widget.class);
             clickIntent.setAction(AppWidgetManager.ACTION_APPWIDGET_UPDATE);
             clickIntent.putExtra(AppWidgetManager.EXTRA_APPWIDGET_IDS, appWidgetIds);

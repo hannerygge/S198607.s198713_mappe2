@@ -103,7 +103,7 @@
         </receiver>
 
         <provider
-            android:name="com.example.hanne_000.s198607s198713_mappe2.ContactCP"
+            android:name=".ContactCP"
             android:authorities="com.example.anne_000.s198607s198713_mappe2"
             android:enabled="true"
             android:exported="true"
